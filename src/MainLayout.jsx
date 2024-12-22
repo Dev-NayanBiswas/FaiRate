@@ -3,11 +3,11 @@ import TopNavbar from "./Components/TopNavbar"
 function MainLayout() {
   return (
     <>
-        <section>
-            <section>
+        <section className="overflow-hidden overflow-y-hidden">
+            <section className="horizontalWidth">
                 <TopNavbar/>
             </section>
-            <section>
+            <section className="horizontalWidth min-h-screen">
                 <Outlet/>
             </section>
         </section>

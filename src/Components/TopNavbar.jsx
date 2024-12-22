@@ -18,22 +18,22 @@ function TopNavbar(){
 
   return (
     <>
-      <div className="navbar">
+      <div className="navbar mb-10 border-b-2 border-defaultColor/10">
   <div className="navbar-start relative">
     <img className="absolute -top-[11px] -z-20 left-[2px]" src={starIcons} alt="" />
     <h1 className="btn btn-ghost text-4xl font-bold font-heading text-defaultColor ml-4">FaiRate</h1>
   </div>
   <div className="navbar-end w-full">
   
-    <ul className="menu menu-horizontal px-1 hidden lg:flex gap-2">
+    <section className="menu menu-horizontal px-1 hidden lg:flex gap-5 mr-4">
       {
         allPaths.map(({path, name}, index)=>
-          <li key={index} className="!text-defaultColor font-bold tracking-wide">
-        <NavLink to={path}>{name}</NavLink>
-      </li>
+          <button key={index} className="defaultNav">
+        <NavLink className={({isActive})=>isActive? "active" : "inActive"} to={path}>{name}</NavLink>
+      </button>
         )
       }
-    </ul>
+    </section>
     <div className="dropdown dropdown-left">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg
@@ -49,21 +49,21 @@ function TopNavbar(){
             d="M4 6h16M4 12h8m-8 6h16" />
         </svg>
       </div>
-      <ul
+      <section
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2">
+        className="menu menu-sm dropdown-content bg-base-100/95 rounded-box z-[1] mt-3 w-[200px] p-2 shadow text-left">
         {
         allPaths.map(({path, name}, index)=>
-          <li key={index}>
+          <button className="defaultNav" key={index}>
         <NavLink to={path}>{name}</NavLink>
-      </li>
+      </button>
         )
       }
-      </ul>
+      </section>
     </div>
     <SwitchTheme/>
   </div>
-</div>
+      </div>
     </>
   )
 }

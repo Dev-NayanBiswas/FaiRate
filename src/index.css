@@ -3,3 +3,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+@layer utilities{
+
+    .horizontalWidth{
+        @apply lg:w-10/12 w-11/12 mx-auto
+    }
+
+    .defaultNav{
+        @apply px-5 py-2 transition-all duration-300 font-semibold tracking-wide h-[70px]
+    }
+    .active{
+        @apply defaultNav border-b-2 border-defaultColor font-heading text-xl text-defaultColor
+    }
+
+    .inActive{
+        @apply defaultNav border-b-2 border-transparent text-gray-400
+    }
+}
