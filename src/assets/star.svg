@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<svg height="" id="icon" viewBox="0 0 30 30" width="50" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+    </defs>
+    
+    
+    
+    <polygon fill="gold" 
+    
+    points="20.549 11.217 16 2 11.451 11.217 1.28 12.695 8.64 19.87 6.902 30 14 26.269 14 24.009 9.559 26.344 10.611 20.208 10.789 19.171 10.036 18.438 5.578 14.091 11.739 13.196 12.779 13.045 13.245 12.102 16 6.519 18.755 12.102 19.221 13.045 20.261 13.196 27.715 14.281 28 12.3 20.549 11.217"
+    />
+    <rect class="cls-1" data-name="&lt;Transparent Rectangle&gt;" height="52" id="_Transparent_Rectangle_" width="32"/>
+    </svg>

@@ -1,0 +1,192 @@
+[
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Web Development",
+      "companyName": "Techify Solutions",
+      "website": "https://techifysolutions.com",
+      "description": "Build high-performance websites tailored to your business needs with our professional web development services. We specialize in creating responsive, user-friendly, and visually appealing websites.",
+      "category": "Technology",
+      "price": 1200
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Graphic Design",
+      "companyName": "Creative Minds",
+      "website": "https://creativeminds.com",
+      "description": "Transform your ideas into stunning visuals with our creative graphic design services. From branding to marketing materials, we deliver designs that captivate audiences.",
+      "category": "Design",
+      "price": 600
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Digital Marketing",
+      "companyName": "Boostify Digital",
+      "website": "https://boostifydigital.com",
+      "description": "Grow your online presence with data-driven digital marketing strategies. We provide SEO, social media marketing, and PPC services to maximize your reach and ROI.",
+      "category": "Marketing",
+      "price": 800
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Content Writing",
+      "companyName": "Words Worth",
+      "website": "https://wordsworth.com",
+      "description": "Engage your audience with our high-quality content writing services. From blogs to website copy, we deliver compelling content tailored to your target audience.",
+      "category": "Content",
+      "price": 400
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "SEO Optimization",
+      "companyName": "RankHigher",
+      "website": "https://rankhigherseo.com",
+      "description": "Boost your website's visibility on search engines with our effective SEO optimization services. We help you rank higher and drive more organic traffic.",
+      "category": "SEO",
+      "price": 750
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Photography",
+      "companyName": "Lens Masters",
+      "website": "https://lensmasters.com",
+      "description": "Capture life’s precious moments with our professional photography services. We specialize in portraits, events, and commercial photography with stunning quality.",
+      "category": "Photography",
+      "price": 500
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "App Development",
+      "companyName": "AppifyTech",
+      "website": "https://appifytech.com",
+      "description": "Bring your app ideas to life with our custom mobile app development services. We create feature-rich and user-friendly apps for iOS and Android platforms.",
+      "category": "Technology",
+      "price": 2500
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Video Editing",
+      "companyName": "EditWorks",
+      "website": "https://editworks.com",
+      "description": "Enhance your videos with our professional editing services. From cinematic effects to storytelling, we craft videos that leave a lasting impression.",
+      "category": "Media",
+      "price": 700
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Fitness Coaching",
+      "companyName": "FitLife Coaching",
+      "website": "https://fitlifecoaching.com",
+      "description": "Achieve your health goals with personalized fitness coaching. We offer tailored workout plans, nutritional advice, and one-on-one guidance to transform your lifestyle.",
+      "category": "Fitness",
+      "price": 300
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Event Planning",
+      "companyName": "PlanIt Events",
+      "website": "https://planitevents.com",
+      "description": "Create unforgettable moments with our expert event planning services. From weddings to corporate events, we handle everything to make your event a success.",
+      "category": "Event",
+      "price": 1000
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Interior Design",
+      "companyName": "HomeStyle Designers",
+      "website": "https://homestyledesigners.com",
+      "description": "Redesign your home or office with our professional interior design services. We create functional, aesthetic, and personalized spaces that reflect your style.",
+      "category": "Design",
+      "price": 1500
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Virtual Assistant",
+      "companyName": "VA Services Pro",
+      "website": "https://vaservicespro.com",
+      "description": "Streamline your tasks with our reliable virtual assistant services. We provide administrative support, scheduling, and data management for individuals and businesses.",
+      "category": "Administration",
+      "price": 200
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Legal Consulting",
+      "companyName": "Law Assist",
+      "website": "https://lawassist.com",
+      "description": "Navigate complex legal matters with our expert consulting services. We offer personalized advice for businesses and individuals to ensure legal compliance.",
+      "category": "Legal",
+      "price": 1200
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Accounting Services",
+      "companyName": "Finance Experts",
+      "website": "https://financeexperts.com",
+      "description": "Manage your finances effectively with our professional accounting services. We provide bookkeeping, payroll management, and financial consulting for businesses.",
+      "category": "Finance",
+      "price": 900
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Online Tutoring",
+      "companyName": "LearnOnline",
+      "website": "https://learnonline.com",
+      "description": "Learn from experienced tutors with our online tutoring services. We offer flexible scheduling and personalized lessons for students of all ages and levels.",
+      "category": "Education",
+      "price": 50
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Pet Grooming",
+      "companyName": "Happy Paws",
+      "website": "https://happypaws.com",
+      "description": "Keep your pets looking their best with our professional grooming services. We provide bathing, haircuts, nail trimming, and more for your furry friends.",
+      "category": "Pet Care",
+      "price": 100
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Travel Booking",
+      "companyName": "TripEase",
+      "website": "https://tripease.com",
+      "description": "Plan your next adventure with our hassle-free travel booking services. We offer personalized itineraries and affordable deals for all destinations.",
+      "category": "Travel",
+      "price": 250
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "House Cleaning",
+      "companyName": "CleanSweep",
+      "website": "https://cleansweep.com",
+      "description": "Enjoy a sparkling clean home with our reliable house cleaning services. We handle everything from routine cleaning to deep cleaning tasks.",
+      "category": "Home",
+      "price": 150
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "IT Support",
+      "companyName": "Tech Assist",
+      "website": "https://techassist.com",
+      "description": "Solve your technical issues with our 24/7 IT support services. From troubleshooting to software installation, we ensure your systems run smoothly.",
+      "category": "Technology",
+      "price": 1000
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Yoga Classes",
+      "companyName": "ZenYoga Studio",
+      "website": "https://zenyogastudio.com",
+      "description": "Relax your mind and body with our professional yoga classes. We offer sessions for beginners and advanced practitioners in a serene environment.",
+      "category": "Fitness",
+      "price": 80
+    },
+    {
+      "serviceImage": "https://via.placeholder.com/150",
+      "serviceTitle": "Car Rental",
+      "companyName": "DriveEasy Rentals",
+      "website": "https://driveeasyrentals.com",
+      "description": "Get around effortlessly with our affordable car rental services. We provide a wide range of vehicles for business and leisure travel.",
+      "category": "Travel",
+      "price": 60
+    }
+  ]
+  
