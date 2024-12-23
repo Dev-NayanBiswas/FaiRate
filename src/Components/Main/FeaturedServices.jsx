@@ -6,7 +6,7 @@ function FeaturedServices(){
     const {data, isLoading, isError, isFetching, error} = useQuery(
         {
             queryKey:["featuredServices"],
-            queryFn:async()=> await axios.get('/featureServices?limit=6').then(res=>res.data)
+            queryFn:async()=> await axios.get('/services?limit=6').then(res=>res.data)
         }
     )
 

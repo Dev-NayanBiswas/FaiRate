@@ -5,7 +5,7 @@ import {
     Typography,
     Avatar,
   } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import Button from "./Loader/Button";
    
 function ServiceCard({cardData}) {
   const {_id,website,serviceTitle,serviceImage,price,description,companyName,category} = cardData || {}
@@ -33,11 +33,11 @@ function ServiceCard({cardData}) {
           <Typography variant="paragraph" className="mb-4 text-gray-200 flex-1">
             {description}
           </Typography>
-          <Typography variant="small" className="text-gray-300 font-para text-xl font-semibold my-8">Starting From
-            <Typography variant="small" className="text-2xl">
-            $ {price}
-            </Typography>
+          <Typography variant="paragraph" className="text-gray-300 font-para text-xl font-semibold my-8">Starting From
           </Typography>
+          <Typography variant="small" className="text-2xl text-white">
+            $ {price}/month 
+            </Typography>
           <section className="flex flex-col justify-between">
           <section className="flex gap-5 mt-10">
           <Avatar
@@ -53,7 +53,7 @@ function ServiceCard({cardData}) {
           </section>
           </section>
           <section className="flex justify-end items-center mt-6">
-            <Link state={cardData} to="/details" className="self-end py-2 px-6 bg-defaultColor/45 text-white tracking-wide rounded-full">details</Link>
+            <Button state={cardData} to={"/details"} />
           </section>
           </section>
         </CardBody>

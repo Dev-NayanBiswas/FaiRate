@@ -1,4 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
+import ReviewContainer from "../../Components/Review/ReviewContainer";
 
 function ServiceDetails() {
   const location = useLocation();
@@ -17,7 +18,8 @@ function ServiceDetails() {
   } = location.state;
 
   return (
-    <section className='min-h-[100vh]'>
+    <section>
+      <section className=''>
       <section className='group flex flex-col justify-start items-start gap-2 md:w-11/12 w-full h-[50vh] duration-500 relative rounded-lg p-4 bg-defaultColor/15 hover:-translate-y-2 hover:shadow-xl shadow-gray-800'>
         <section
           alt='image here'
@@ -33,29 +35,33 @@ function ServiceDetails() {
           </section>
         </section>
 
-        <section className='p-4 bg-defaultColor/75 w-full h-full rounded-lg text-white'>
+        <section className='p-4 bg-[#20161f]/75 w-full h-full rounded-lg text-white'>
           <h2 className='md:text-4xl text-2xl font-bold mb-2 text-gray-200 font-heading'>
             {serviceTitle}
           </h2>
           <p className='text-gray-200 line-clamp-3'>{description}</p>
-          <section className="my-5 text-gray-200">
-          <p><span className="text-yellow-300 tracking-wide font-semibold text-lg">Company :</span>  {companyName}</p>
-          <p><span className="text-yellow-300 tracking-wide font-semibold text-lg">Website :</span>  {website}</p>
-          <p><span className="text-yellow-300 tracking-wide font-semibold text-lg">Category :</span>  {category}</p>
-          <p><span className="text-yellow-300 tracking-wide font-semibold text-lg">Starts From :</span>  $ {price} / month</p>
+          <section className="mb-5 mt-3 text-gray-200">
+          <p><span className="text-yellow-300 tracking-wide font-semibold ">Company :</span>  {companyName}</p>
+          <p><span className="text-yellow-300 tracking-wide font-semibold ">Website :</span>  {website}</p>
+          <p><span className="text-yellow-300 tracking-wide font-semibold ">Category :</span>  {category}</p>
+          <p><span className="text-yellow-300 tracking-wide font-semibold ">Starts From :</span>  $ {price} / month</p>
           </section>
           <section className="md:block hidden">
             <Avatar/>
           </section>
         </section>
-
-        <section></section>
       </section>
 
 
       <section className="md:hidden block">
       <Avatar/>
       </section>
+    </section>
+    <section>
+    <section className="my-[40vh]">
+          <ReviewContainer id={_id}/>
+    </section>
+    </section>
     </section>
   );
 }
@@ -71,7 +77,7 @@ function Avatar (){
         <img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' />
       </div>
     </div>
-    <article className="text-white">
+    <article className="text-base-300">
       <h1>Author :</h1>
       <p>Posted On :</p>
       <p>Updated On :</p>
