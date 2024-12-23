@@ -35,9 +35,9 @@ function ReviewInputs({serviceID, prevReview, service}){
             }
 
             if(serviceID){
-                console.log(serviceID)
-                console.log("Add Mode Post Call")
-                console.log(finalReview);
+                // console.log(serviceID)
+                // console.log("Add Mode Post Call")
+                // console.log(finalReview);
                 addReviewCount(serviceID)
                 addReviews(finalReview);
                 

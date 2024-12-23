@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
-const ReviewCard = () => {
+const ReviewCard = ({reviewData}) => {
+  const {_id,serviceTitle,serviceID,rating,postedDate,name,image,email,comment}= reviewData || {}
   return (
     <StyledWrapper>
       <div className="card !bg-[#20161f]/75">
         <div className="h-20 w-20 aspect-square bg-green-500 rounded-full ring-green-500 ring-offset-4 ring-offset-[#4f4c52] ring-4">
           <img className="object-cover w-full h-full rounded-full bg-gray-800" src="" alt="" />
         </div>
-        <div className="title">Easy Cheesy</div>
-        <div className="rating">Rating</div>
-        <p className="description">This cheesy, juicy ultimate comforting lunch or quick and easy dinner recipe.</p>
+        <div className="title">{name}</div>
+        <div className="rating">{rating}/5</div>
+        <p className="description">{comment}</p>
       </div>
     </StyledWrapper>
   );

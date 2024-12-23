@@ -15,7 +15,9 @@ function ServiceDetails() {
     description,
     companyName,
     category,
+    reviewCount
   } = location.state;
+
 
   return (
     <section>
@@ -30,7 +32,7 @@ function ServiceDetails() {
             alt=''
           />
           <section className='absolute duration-700 group-hover:-translate-y-4 bottom-10 md:left-5 translate-x-1/2'>
-            <span className='my-5 px-5'>4 Reviews</span>
+            <span className='my-5 px-5 text-xl text-base-300'>{reviewCount} Reviews</span>
             <span className='my-5 px-5'>Rating</span>
           </section>
         </section>
