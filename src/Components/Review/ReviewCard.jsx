@@ -12,7 +12,7 @@ const ReviewCard = ({reviewData}) => {
         <div className="title">{name}</div>
         <div className="rating"><Rating rating={rating}/></div>
         <p className="italic text-xl mb-1">{serviceTitle}</p>
-        <p className="description">{comment}</p>
+        <p className="description line-clamp-4">{comment}</p>
         <p className="text-sm text-gray-500">{postedDate}</p>
       </div>
     </StyledWrapper>

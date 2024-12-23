@@ -7,11 +7,13 @@ import Register from "./Pages/Register/Register";
 import AddServices from "./Pages/AddServices/AddServices";
 import MyReviews from "./Pages/MyReviews/MyReviews";
 import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails";
+import ErrorPage from "./Pages/Error/ErrorPage";
 
 const Routes = createBrowserRouter([
     {
         path:"/",
         element:<MainLayout/>,
+        errorElement:<ErrorPage/>,
         children:[
             {
                 path:"/",

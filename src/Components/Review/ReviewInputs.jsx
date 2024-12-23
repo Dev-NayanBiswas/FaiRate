@@ -56,7 +56,7 @@ function ReviewInputs({serviceID, prevReview, service}){
       <section className='flex justify-center items-center mb-8 bg-transparent'>
         <form onSubmit={handleSubmit(formHandler)} className='h-80 px-7 w-[700px] rounded-[12px] p-4'>
           <p className='font-semibold cursor-pointer transition-all text-defaultColor font-heading text-4xl'>
-            What you Think !
+            {updateReview? prevReview.serviceTitle : 'What you Think !'}
           </p>
           <section>
           <textarea
