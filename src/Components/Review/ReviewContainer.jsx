@@ -1,7 +1,7 @@
 import ReviewCard from "./ReviewCard"
 import ReviewInputs from "./ReviewInputs"
 
-function ReviewContainer({id}){
+function ReviewContainer({id, service}){
     const prevReview = {
         comment:"Hello there i'm testing your Connectivity",
         rating:3
@@ -10,7 +10,7 @@ function ReviewContainer({id}){
     <>
     <section className="">
         <section>
-            <ReviewInputs serviceID={id} prevReview={prevReview}/>
+            <ReviewInputs serviceID={id} service={service} prevReview={prevReview}/>
         </section>
         <section className=" my-8">
             <h1 className="text-4xl font-heading text-defaultColor md:text-left text-center font-semibold">All Reviews</h1>

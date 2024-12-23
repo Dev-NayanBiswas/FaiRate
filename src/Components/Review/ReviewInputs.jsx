@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
 import formateDate from "../../Utilities/formateDate";
-import axios from "axios";
-import { useEffect } from "react";
 import useCURD from "../../Hooks/useCURD";
 
-function ReviewInputs({serviceID, prevReview}){
-    const {addReviewCount} = useCURD()
+function ReviewInputs({serviceID, prevReview, service}){
+    const {addReviewCount,addReviews} = useCURD()
     const updateReview = !!prevReview;
     const {register,handleSubmit,watch,setValue, formState:{errors}, clearErrors, setError, reset} = useForm({defaultValues:{
         comment:prevReview?.comment||"",
@@ -15,8 +13,9 @@ function ReviewInputs({serviceID, prevReview}){
 
     const currentRating = watch("rating" || 0);
     const identifier = {
-        name:"John Doe",
-        email:"john@doe.com",
+        name:"Jenny Doe",
+        email:"jenny@doe.com",
+        image:"large large Image",
         postedDate:formateDate(),
     }
 
@@ -28,12 +27,19 @@ function ReviewInputs({serviceID, prevReview}){
             })
             return;
         }else{
-            const finalReview = {...data,...identifier,serviceID:serviceID}
+            const finalReview = {
+                ...data,
+                ...identifier,
+                serviceID:serviceID,
+                serviceTitle:service
+            }
+
             if(serviceID){
                 console.log(serviceID)
                 console.log("Add Mode Post Call")
                 console.log(finalReview);
                 addReviewCount(serviceID)
+                addReviews(finalReview);
                 
             }else{
                 console.log("Edit Mode Patch call");

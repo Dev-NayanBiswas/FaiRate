@@ -59,7 +59,7 @@ function ServiceDetails() {
     </section>
     <section>
     <section className="my-[40vh]">
-          <ReviewContainer id={_id}/>
+          <ReviewContainer id={_id} service={serviceTitle}/>
     </section>
     </section>
     </section>
