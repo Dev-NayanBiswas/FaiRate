@@ -36,7 +36,7 @@ function ReviewContainer({id, service}){
             <h1 className="text-4xl font-heading text-defaultColor md:text-left text-center font-semibold">All Reviews</h1>
             <div className="border-defaultColor/55 border-b-[1px]"></div>
         </section>
-        <section className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1  gap-10">
+        <section className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1  gap-10">
                 {
                     data?.map((review)=><ReviewCard key={review._id} reviewData={review}/>)
                 }

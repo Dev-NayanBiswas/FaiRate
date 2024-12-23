@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Rating from './Rating';
 
 const ReviewCard = ({reviewData}) => {
   const {_id,serviceTitle,serviceID,rating,postedDate,name,image,email,comment}= reviewData || {}
@@ -9,8 +10,10 @@ const ReviewCard = ({reviewData}) => {
           <img className="object-cover w-full h-full rounded-full bg-gray-800" src="" alt="" />
         </div>
         <div className="title">{name}</div>
-        <div className="rating">{rating}/5</div>
+        <div className="rating"><Rating rating={rating}/></div>
+        <p className="italic text-xl mb-1">{serviceTitle}</p>
         <p className="description">{comment}</p>
+        <p className="text-sm text-gray-500">{postedDate}</p>
       </div>
     </StyledWrapper>
   );

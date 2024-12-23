@@ -13,8 +13,8 @@ function ReviewInputs({serviceID, prevReview, service}){
 
     const currentRating = watch("rating" || 0);
     const identifier = {
-        name:"Jenny Doe",
-        email:"jenny@doe.com",
+        name:"John Doe",
+        email:"john@doe.com",
         image:"large large Image",
         postedDate:formateDate(),
     }

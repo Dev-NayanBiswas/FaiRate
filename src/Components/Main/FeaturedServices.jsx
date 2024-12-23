@@ -1,6 +1,7 @@
 import ServiceCard from "../ServiceCard"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import Loader from "../Loader/Loader"
 
 function FeaturedServices(){
     const {data, isLoading, isError, isFetching, error} = useQuery(
@@ -11,7 +12,7 @@ function FeaturedServices(){
     )
 
     if(isLoading || isFetching){
-        return <h1>...Loading</h1>
+        return <Loader/>
     }
 
     if(isError){

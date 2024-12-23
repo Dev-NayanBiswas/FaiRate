@@ -3,7 +3,7 @@ import SwitchTheme from "./SwitchTheme"
 import starIcons from "../assets/star.svg"
 
 function TopNavbar(){
-  const userData = false;
+  const userData = true;
   const allPaths = !userData? [
     {path:"/", name:"Home"},
     {path:"/services", name:"Services"},
