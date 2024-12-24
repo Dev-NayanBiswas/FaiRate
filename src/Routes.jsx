@@ -8,6 +8,7 @@ import AddServices from "./Pages/AddServices/AddServices";
 import MyReviews from "./Pages/MyReviews/MyReviews";
 import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails";
 import ErrorPage from "./Pages/Error/ErrorPage";
+import SecureRoute from "./Pages/Secure/SecureRoute";
 
 const Routes = createBrowserRouter([
     {
@@ -33,15 +34,21 @@ const Routes = createBrowserRouter([
             },
             {
                 path:"addServices",
-                element:<AddServices/>
+                element:<SecureRoute>
+                    <AddServices/>
+                </SecureRoute>
             },
             {
                 path:"myReviews",
-                element:<MyReviews/>
+                element:<SecureRoute>
+                    <MyReviews/>
+                </SecureRoute>
             },
             {
                 path:"details",
-                element:<ServiceDetails/>
+                element:<SecureRoute>
+                    <ServiceDetails/>
+                </SecureRoute>
             }
         ]
     }

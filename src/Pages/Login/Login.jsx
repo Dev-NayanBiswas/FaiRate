@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import useAuth from "../../Hooks/useAuth"
@@ -10,13 +10,18 @@ import toastAlert from "../../Utilities/toastAlert";
 
 function Login(){
   const [showPass, setShowPass] = useState(false);
+  const redirect = useNavigate();
+  const location = useLocation();
+  console.log(location)
   const {signingWithEmail} = useAuth();
   const {handleSubmit, register, formState:{errors}, reset} = useForm()
 
 
   function handleRegister(data){
     signingWithEmail(data.email,data.password)
-    .then(()=>toastAlert("success", "Successfully Logged in"))
+    .then(()=>{
+      redirect(location?.state ? location.state : "/")
+      toastAlert("success", "Successfully Logged in")})
     .catch(()=>toastAlert('error',"Invalid Email or Password"))
     reset({
       email:"",
