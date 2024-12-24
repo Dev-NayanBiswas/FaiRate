@@ -23,4 +23,12 @@
     .inActive{
         @apply defaultNav border-b-2 border-transparent text-gray-400
     }
+
+    .defaultInput{
+        @apply border-b-[1px] outline-none italic font-semibold w-full tracking-wide py-1 focus:border-defaultColor rounded-e-full rounded-s-full shadow px-5 focus:shadow-defaultColor transition-all focus:outline-none bg-inherit
+    }
+    .formBtn{
+        @apply px-10 py-2 text-white tracking-wider rounded-e-full rounded-s-full my-4 bg-defaultColor/75
+    }
+
 }

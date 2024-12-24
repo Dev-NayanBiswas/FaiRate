@@ -12,9 +12,9 @@ function MyReviewTable({ cardData }){
     const {serviceTitle,_id,rating,comment,postedDate}=cardData||{}
 
     function handleDelete(id){
-        console.log("Delete Clicked", id);
         deleteReview(id)
     }
+
 
   return (
     <>

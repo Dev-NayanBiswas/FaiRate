@@ -21,7 +21,7 @@ function SwitchTheme() {
     return (
         <div className="flex items-center gap-2">
             <button
-                className="p-2 mx-2 bg-defaultColor/15 rounded-full"
+                className="px-3"
                 onClick={toggleTheme}
             >
                 {theme === "coffee" ? <FaMoon className="text-sky-300" size={20} /> : <AiFillSun fill="gold" size={20}/>}

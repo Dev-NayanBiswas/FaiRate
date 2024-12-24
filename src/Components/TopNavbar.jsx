@@ -1,10 +1,14 @@
 import { NavLink } from "react-router-dom"
 import SwitchTheme from "./SwitchTheme"
 import starIcons from "../assets/star.svg"
+import useAuth from "../Hooks/useAuth"
+import Avatar from "./Avatar"
 
 function TopNavbar(){
-  const userData = true;
-  const allPaths = !userData? [
+  const {userData} = useAuth()
+
+  console.log(userData?.email);
+  const allPaths = !userData?.email ? [
     {path:"/", name:"Home"},
     {path:"/services", name:"Services"},
     {path:"/Login", name:"Login"},
@@ -62,6 +66,9 @@ function TopNavbar(){
       </section>
     </div>
     <SwitchTheme/>
+    {
+      userData?.email ? <Avatar/> : ""
+    }
   </div>
       </div>
     </>
