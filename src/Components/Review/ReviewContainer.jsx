@@ -3,8 +3,10 @@ import ReviewCard from "./ReviewCard"
 import ReviewInputs from "./ReviewInputs"
 import axios from "axios"
 import Loader from "../Loader/Loader"
+import useAuth from "../../Hooks/useAuth"
 
 function ReviewContainer({id, service}){
+    const {userData} = useAuth();
     const {isLoading, isFetching, isError,error, data} = useQuery({
         queryKey:["serviceReviews", [id]],
         queryFn:()=>axios.get(`/serviceReviews?serviceID=${id}`).then(res=>res.data.result),
@@ -30,7 +32,9 @@ function ReviewContainer({id, service}){
     <>
     <section className="">
         <section>
-            <ReviewInputs serviceID={id} service={service}/>
+            {
+                userData?.email && <ReviewInputs serviceID={id} service={service}/>
+            }
         </section>
         <section className=" my-8">
             <h1 className="text-4xl font-heading text-defaultColor md:text-left text-center font-semibold">All Reviews</h1>

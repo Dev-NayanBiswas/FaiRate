@@ -2,9 +2,12 @@ import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
 import formateDate from "../../Utilities/formateDate";
 import useCURD from "../../Hooks/useCURD";
+import useAuth from "../../Hooks/useAuth";
 
 function ReviewInputs({serviceID, prevReview, service}){
     const {addReviewCount,addReviews, updateReview:updateMyReview} = useCURD()
+    const {userData} = useAuth();
+    const {email,displayName,photoURL} = userData || {}
     const updateReview = !!prevReview;
     const {register,handleSubmit,watch,setValue, formState:{errors}, clearErrors, setError, reset} = useForm({defaultValues:{
         comment:prevReview?.comment||"",
@@ -13,9 +16,9 @@ function ReviewInputs({serviceID, prevReview, service}){
 
     const currentRating = watch("rating" || 0);
     const identifier = {
-        name:"John Doe",
-        email:"john@doe.com",
-        image:"large large Image",
+        name:displayName,
+        email:email,
+        image:photoURL,
         postedDate:formateDate(),
     }
 
@@ -85,7 +88,7 @@ function ReviewInputs({serviceID, prevReview, service}){
                 value={currentRating}
                 isHalf={false}
                 fullIcon={<i className='fa fa-star'></i>}
-                size={20}
+                size={30}
                 style={{ color: "gold", cursor: "pointer" }}
                 />
                 {currentRating > 0 && (

@@ -32,7 +32,7 @@ function ServiceDetails() {
             alt=''
           />
           <section className='absolute duration-700 group-hover:-translate-y-4 bottom-10 md:left-5 translate-x-1/2'>
-            <span className='my-5 px-5 text-xl text-base-300'>{reviewCount} Reviews</span>
+            <span className='my-5 px-5 text-xl text-inherit'>{reviewCount} Reviews</span>
           </section>
         </section>
 
@@ -78,7 +78,7 @@ function Avatar (){
         <img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' />
       </div>
     </div>
-    <article className="text-base-300">
+    <article className="text-inherit">
       <h1>Author :</h1>
       <p>Posted On :</p>
       <p>Updated On :</p>

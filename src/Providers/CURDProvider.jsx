@@ -4,12 +4,25 @@ import toastAlert from "../Utilities/toastAlert";
 
 function CURDProvider({children}){
 
+    //!Add A Service 
+    async function addService(data){
+        try{
+            const response = await axios.post('/addService', data);
+            if(response.status >= 200 && response.status < 300){
+                const message = await response.data.message;
+                toastAlert("success", message)
+            }
+        }catch(error){
+            toastAlert('error',error.message)
+        }
+    }
+
     //! Add & Update ReviewCount 
     async function addReviewCount(id){
         try{
             const response = await axios.patch(`/services/${id}`);
             if(response.status >= 200 && response.status < 300){
-                const message =response.data.message;
+                const message = await response.data.message;
                 toastAlert("success",message)
             }else{
                 throw new Error("Error in Data Updating")
@@ -66,6 +79,7 @@ function CURDProvider({children}){
     }
 
     const CURDObject={
+        addService,
         addReviews,
         deleteReview,
         updateReview,

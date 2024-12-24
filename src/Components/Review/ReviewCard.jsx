@@ -7,7 +7,7 @@ const ReviewCard = ({reviewData}) => {
     <StyledWrapper>
       <div className="card !bg-[#20161f]/75">
         <div className="h-20 w-20 aspect-square bg-green-500 rounded-full ring-green-500 ring-offset-4 ring-offset-[#4f4c52] ring-4">
-          <img className="object-cover w-full h-full rounded-full bg-gray-800" src="" alt="" />
+          <img className="object-cover w-full h-full rounded-full bg-gray-800" src={image} alt="" />
         </div>
         <div className="title">{name}</div>
         <div className="rating"><Rating rating={rating}/></div>

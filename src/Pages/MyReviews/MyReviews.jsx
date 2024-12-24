@@ -3,9 +3,11 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import Loader from "../../Components/Loader/Loader"
 import MyReviewTable from "../../Components/MyReviewTable/MyReviewTable.jsx"
+import useAuth from "../../Hooks/useAuth.jsx"
 
 function MyReviews(){
-  const email = "john@doe.com"
+  const {userData} = useAuth()
+  const email = userData?.email;
   const {data, isError, error, isFetching, isLoading} = useQuery({
     queryKey:["MyReviews", email],
     queryFn:()=>axios.get(`/serviceReviews?email=${email}`).then(res=>res.data.result),

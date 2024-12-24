@@ -17,6 +17,7 @@ function TopNavbar(){
   {path:"/", name:"Home"},
   {path:"/services", name:"Services"},
   {path:"/addServices", name:"Add Services"},
+  {path:"/myServices", name:"My Services"},
   {path:"/myReviews", name:"My Reviews"},
 ]
 
@@ -29,7 +30,7 @@ function TopNavbar(){
   </div>
   <div className="navbar-end w-full">
   
-    <section className="menu menu-horizontal px-1 hidden lg:flex gap-5 mr-4">
+    <section className="px-1 hidden lg:flex gap-5 mr-4 whitespace-nowrap">
       {
         allPaths.map(({path, name}, index)=>
           <button key={index} className="defaultNav">
