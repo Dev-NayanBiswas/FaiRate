@@ -1,4 +1,5 @@
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import Swal from 'sweetalert2'
 import { FaPencil } from "react-icons/fa6";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import {
@@ -10,13 +11,14 @@ import {
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery} from "@tanstack/react-query";
 import Loader from "../../Components/Loader/Loader";
 import toastAlert from "../../Utilities/toastAlert";
 import axios from "axios";
 import UpdateServices from "../../Components/UpdateService";
+import DeleteModal from "../../Components/DeleteModal/DeleteModal";
 import useCURD from "../../Hooks/useCURD";
- 
+
 const TABLE_HEAD = [
 {head:"Title"},
 {head:"Description"},
@@ -27,12 +29,11 @@ const TABLE_HEAD = [
 ];
 
 export function MyServices(){
-    const [serviceData, setServiceData] = useState(null)
+    const [serviceData, setServiceData] = useState(null);
     const [searchData, setSearchData] = useState("");
     const [debounce, setDebounce] = useState("");
-    const {updateService} = useCURD()
     const {userData} = useAuth();
-    const queryClient = useQueryClient()
+    const {deleteMyService}= useCURD();
     const email = userData?.email;
 
 
@@ -66,20 +67,31 @@ export function MyServices(){
         return toastAlert("error", error.message)
     }
 
-
-
-
-    // console.log(searchData);
-    // console.log(data);
-
-    function handleUpdate(data){
-        console.log(data)
+    function handleUpdate(){
         setServiceData(null)
         setTimeout(()=>refetch(),1000)
     }
 
-    function handleDelete(){
-        console.log("Delete Clicked")
+    function handleDelete(id){
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Confirm"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                deleteMyService(id)
+                setTimeout(()=>refetch(),200)
+              Swal.fire({
+                title: "Deleted!",
+                text: "Deleted Successfully",
+                icon: "success"
+              });
+            }
+          });
     }
 
   return (

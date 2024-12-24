@@ -31,6 +31,19 @@ function CURDProvider({children}){
         }
     }
 
+    //! Delete MyService 
+    async function deleteMyService(id){
+        try{
+            const response = await axios.delete(`/myService/${id}`);
+            if(response.status >= 200 && response.status < 300){
+                const message = await response.data.message;
+                toastAlert("success", message);
+            }
+        }catch(error){
+            toastAlert("error", error.message)
+        }
+    }
+
     //! Add & Update ReviewCount 
     async function addReviewCount(id){
         try{
@@ -95,6 +108,7 @@ function CURDProvider({children}){
     const CURDObject={
         addService,
         updateService,
+        deleteMyService,
         addReviews,
         deleteReview,
         updateReview,
