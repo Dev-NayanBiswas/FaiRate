@@ -10,10 +10,12 @@ import {
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Loader from "../../Components/Loader/Loader";
 import toastAlert from "../../Utilities/toastAlert";
 import axios from "axios";
+import UpdateServices from "../../Components/UpdateService";
+import useCURD from "../../Hooks/useCURD";
  
 const TABLE_HEAD = [
 {head:"Title"},
@@ -25,9 +27,12 @@ const TABLE_HEAD = [
 ];
 
 export function MyServices(){
+    const [serviceData, setServiceData] = useState(null)
     const [searchData, setSearchData] = useState("");
     const [debounce, setDebounce] = useState("");
+    const {updateService} = useCURD()
     const {userData} = useAuth();
+    const queryClient = useQueryClient()
     const email = userData?.email;
 
 
@@ -51,8 +56,6 @@ export function MyServices(){
         queryFn:()=>myServiceFetcher(email, debounce),
         enabled:!!email,
     })
-
-
     
 
     if(isLoading){
@@ -64,11 +67,15 @@ export function MyServices(){
     }
 
 
+
+
     // console.log(searchData);
     // console.log(data);
 
-    function handleUpdate(){
-        console.log("Update Clicked")
+    function handleUpdate(data){
+        console.log(data)
+        setServiceData(null)
+        setTimeout(()=>refetch(),1000)
     }
 
     function handleDelete(){
@@ -76,7 +83,8 @@ export function MyServices(){
     }
 
   return (
-    <Card className="h-full w-full overflow-scroll bg-inherit !text-inherit">
+    <section>
+        <Card className="h-full w-full overflow-scroll bg-inherit !text-inherit">
       <CardHeader
         floated={false}
         shadow={false}
@@ -111,7 +119,7 @@ export function MyServices(){
         </thead>
         <tbody>
           {data?.map(
-            ({serviceTitle,description,price,category,publishedOn}, index) => {
+            (service, index) => {
               const isLast = index === data.length - 1;
               const classes = isLast ? "p-4" : "p-4 border-b border-gray-300";
  
@@ -124,7 +132,7 @@ export function MyServices(){
                         color="blue-gray"
                         className="font-bold text-gray-400"
                       >
-                        {serviceTitle}
+                        {service.serviceTitle}
                       </Typography>
                     </div>
                   </td>
@@ -133,7 +141,7 @@ export function MyServices(){
                       variant="small"
                       className="font-normal text-gray-400"
                     >
-                      {description.length > 20 ? `${description.slice(0,20)}...`: description}
+                      {service?.description?.length > 20 ? `${service?.description.slice(0,20)}...`: service?.description}
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -141,7 +149,7 @@ export function MyServices(){
                       variant="small"
                       className="font-normal text-gray-400"
                     >
-                      {category}
+                      {service?.category}
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -149,7 +157,7 @@ export function MyServices(){
                       variant="small"
                       className="font-normal text-gray-400"
                     >
-                      {price}
+                      {service?.price}
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -157,15 +165,15 @@ export function MyServices(){
                       variant="small"
                       className="font-normal text-gray-400"
                     >
-                      {publishedOn}
+                      {service?.publishedOn}
                     </Typography>
                   </td>
                   <td className={classes}>
                     <div className="flex items-center gap-2">
-                      <IconButton onClick={()=>handleDelete()} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full">
+                      <IconButton onClick={()=>handleDelete(service?._id)} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full">
                         <RiDeleteBin6Fill className="h-4 w-4 text-red-400" />
                       </IconButton>
-                      <IconButton onClick={handleUpdate} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full">
+                      <IconButton onClick={()=>setServiceData(service)} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full">
                         <FaPencil
                           className="h-4 w-4 text-green-700"
                         />
@@ -179,6 +187,14 @@ export function MyServices(){
         </tbody>
       </table>
     </Card>
+    {
+        serviceData && <section className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-black/75 flex items-center justify-center">
+        <section className="md:w-10/12 w-11/12">
+        <UpdateServices onModalClose={handleUpdate} serviceData={serviceData}/>
+        </section>
+        </section>
+    }
+    </section>
   );
 }
 

@@ -17,6 +17,20 @@ function CURDProvider({children}){
         }
     }
 
+
+    //! Update MyService 
+    async function updateService(data,id){
+        try{
+            const response = await axios.put(`/updateService/${id}`, data);
+            if(response.status >= 200 && response.status < 300){
+                const message = await response.data.message;
+                toastAlert("success", message)
+            }
+        }catch(error){
+            toastAlert("error", error.message)
+        }
+    }
+
     //! Add & Update ReviewCount 
     async function addReviewCount(id){
         try{
@@ -80,6 +94,7 @@ function CURDProvider({children}){
 
     const CURDObject={
         addService,
+        updateService,
         addReviews,
         deleteReview,
         updateReview,
