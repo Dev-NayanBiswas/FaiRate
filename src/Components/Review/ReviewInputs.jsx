@@ -4,7 +4,7 @@ import formateDate from "../../Utilities/formateDate";
 import useCURD from "../../Hooks/useCURD";
 
 function ReviewInputs({serviceID, prevReview, service}){
-    const {addReviewCount,addReviews} = useCURD()
+    const {addReviewCount,addReviews, updateReview:updateMyReview} = useCURD()
     const updateReview = !!prevReview;
     const {register,handleSubmit,watch,setValue, formState:{errors}, clearErrors, setError, reset} = useForm({defaultValues:{
         comment:prevReview?.comment||"",
@@ -35,15 +35,12 @@ function ReviewInputs({serviceID, prevReview, service}){
             }
 
             if(serviceID){
-                // console.log(serviceID)
-                // console.log("Add Mode Post Call")
-                // console.log(finalReview);
                 addReviewCount(serviceID)
                 addReviews(finalReview);
                 
             }else{
                 console.log("Edit Mode Patch call");
-                console.log(prevReview)
+                updateMyReview(data,prevReview._id)
             }
             reset({
                 comment:"",

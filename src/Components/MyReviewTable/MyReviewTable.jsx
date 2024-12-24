@@ -3,20 +3,19 @@ import Rating from "../Review/Rating";
 import ReviewInputs from "../Review/ReviewInputs";
 import { IoClose } from "react-icons/io5";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import useCURD from "../../Hooks/useCURD";
 
 function MyReviewTable({ cardData }){
+    const {deleteReview} = useCURD()
     const [isOpen, setIsOpen] = useState(false)
     const [deleteModal, setDeleteModal] = useState(false)
     const {serviceTitle,_id,rating,comment,postedDate}=cardData||{}
 
     function handleDelete(id){
-        console.log("Delete Clicked", id)
+        console.log("Delete Clicked", id);
+        deleteReview(id)
     }
 
-    function handleUpdate(id){
-        setIsOpen(true)
-        console.log("Update Clicked", id)
-    }
   return (
     <>
       <section className="flex flex-col md:flex-row w-full justify-between md:items-center gap-5 border-defaultColor/35 p-2 border-[1px] rounded-lg px-4">
@@ -52,7 +51,7 @@ function MyReviewTable({ cardData }){
               </svg>
             </button>
 
-            <button onClick={()=>handleUpdate(_id)} className='text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none'>
+            <button onClick={()=>setIsOpen(true)} className='text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
