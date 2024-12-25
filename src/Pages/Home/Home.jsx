@@ -1,3 +1,4 @@
+import CountUpContainer from "../../Components/CountUpContainer"
 import FeaturedServices from "../../Components/Main/FeaturedServices"
 
 function Home(){
@@ -9,6 +10,7 @@ function Home(){
         <main>
           <FeaturedServices/>
         </main>
+        <CountUpContainer/>
       </section>
     </>
   )
