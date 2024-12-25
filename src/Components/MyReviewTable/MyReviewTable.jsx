@@ -2,17 +2,33 @@ import { useState } from "react";
 import Rating from "../Review/Rating";
 import ReviewInputs from "../Review/ReviewInputs";
 import { IoClose } from "react-icons/io5";
-import DeleteModal from "../DeleteModal/DeleteModal";
 import useCURD from "../../Hooks/useCURD";
+import Swal from "sweetalert2";
 
 function MyReviewTable({ cardData }){
     const {deleteReview} = useCURD()
     const [isOpen, setIsOpen] = useState(false)
-    const [deleteModal, setDeleteModal] = useState(false)
     const {serviceTitle,_id,rating,comment,postedDate}=cardData||{}
 
     function handleDelete(id){
-        deleteReview(id)
+      Swal.fire({
+                  title: "Are you sure?",
+                  text: "You won't be able to revert this!",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Confirm"
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    deleteReview(id)
+                    Swal.fire({
+                      title: "Deleted!",
+                      text: "Deleted Successfully",
+                      icon: "success"
+                    });
+                  }
+                })
     }
 
 
@@ -35,7 +51,7 @@ function MyReviewTable({ cardData }){
         </section>
         <section className="self-end flex justify-end items-center md:w-3/12">
           <div className='flex items-center gap-x-6'>
-            <button onClick={()=>setDeleteModal(true)} className='text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none'>
+            <button onClick={()=>handleDelete(_id)} className='text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
@@ -78,14 +94,6 @@ function MyReviewTable({ cardData }){
              <ReviewInputs prevReview={cardData}/>
              </section>
       </section>
-        }
-        {deleteModal &&
-      <section className="fixed bg-gray-800/75 z-50 flex top-0 bottom-0 left-0 right-0 justify-center items-center w-full h-full">
-             <section className="md:w-8/12 w-full relative">
-             <DeleteModal modalClose={()=>setDeleteModal(false)} deleteConfirm={()=>handleDelete(_id)}/>
-             </section>
-      </section>
-
         }
     </>
   );

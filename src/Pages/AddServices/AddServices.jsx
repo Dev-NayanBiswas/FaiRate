@@ -6,10 +6,8 @@ import useCURD from "../../Hooks/useCURD";
 
 function AddServices() {
   const redirect = useNavigate();
-  const location = useLocation();
   const {userData} = useAuth();
   const {addService} = useCURD();
-  console.log(userData)
   const {handleSubmit, register, formState:{errors}, reset} = useForm()
 
     // serviceImage, serviceTitle,companyName,website,description,category,price
@@ -28,6 +26,7 @@ function AddServices() {
     }
 
     addService(finalData)
+    redirect("/services")
   }
 
   return (

@@ -5,7 +5,6 @@ import Loader from "../../Components/Loader/Loader";
 function SecureRoute({children}){
     const {userData, loading} = useAuth();
     const location = useLocation();
-    console.log(location)
 
     if(userData?.email){
         return children;
