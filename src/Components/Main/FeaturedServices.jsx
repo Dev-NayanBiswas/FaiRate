@@ -1,7 +1,7 @@
 import ServiceCard from "../ServiceCard"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import Loader from "../Loader/Loader"
+import axios from "../../axiosSecure.js"
 
 function FeaturedServices(){
     const {data, isLoading, isError, isFetching, error} = useQuery(
@@ -23,8 +23,8 @@ function FeaturedServices(){
   return (
     <>
         <section>
-                <h1>
-                    {data?.length}
+                <h1 className="text-4xl font-heading text-defaultColor font-semibold text-center my-8">
+                    Featured Services
                 </h1>
             <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
                 {

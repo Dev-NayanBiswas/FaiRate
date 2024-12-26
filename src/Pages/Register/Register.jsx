@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import useAuth from "../../Hooks/useAuth"
@@ -6,18 +6,28 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import GoogleSignin from "./GoogleSignin";
 import toastAlert from "../../Utilities/toastAlert";
+import dynamicTitle from "../../Utilities/dynamicTitle";
 
 function Register(){
+  dynamicTitle("Register")
+  const redirect = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const {registrationWithEmail,updateUserProfile} = useAuth();
   const {handleSubmit, register, formState:{errors}, reset} = useForm()
 
 
   function handleRegister(data){
+    const userData = {
+      email:data?.email,
+      name:data?.name,
+      photo:data?.image
+    }
     registrationWithEmail(data.email,data.password)
     .then(()=>{
       updateUserProfile(data.name, data.image)
-      .then(()=>toastAlert('success','Successfully Registered'))
+      .then(()=>{
+        redirect("/");
+        toastAlert('success','Successfully Registered')})
       .catch(()=>toastAlert("error", "Error in Registration"))
     }).catch(()=>toastAlert("error", "Error in Registration"))
     reset({

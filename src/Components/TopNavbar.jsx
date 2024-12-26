@@ -7,7 +7,6 @@ import Avatar from "./Avatar"
 function TopNavbar(){
   const {userData} = useAuth()
 
-  console.log(userData?.email);
   const allPaths = !userData?.email ? [
     {path:"/", name:"Home"},
     {path:"/services", name:"Services"},
@@ -23,7 +22,7 @@ function TopNavbar(){
 
   return (
     <>
-      <div className="navbar mb-10 border-b-2 border-defaultColor/10">
+      <div className="navbar mb-10 border-b-2 border-defaultColor/10 min-h-20">
   <div className="navbar-start relative">
     <img className="absolute -top-[11px] -z-20 left-[2px]" src={starIcons} alt="" />
     <h1 className="btn btn-ghost text-4xl font-bold font-heading text-defaultColor ml-4">FaiRate</h1>

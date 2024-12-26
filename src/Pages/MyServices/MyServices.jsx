@@ -14,10 +14,12 @@ import useAuth from "../../Hooks/useAuth";
 import { useQuery} from "@tanstack/react-query";
 import Loader from "../../Components/Loader/Loader";
 import toastAlert from "../../Utilities/toastAlert";
-import axios from "axios";
 import UpdateServices from "../../Components/UpdateService";
 import useCURD from "../../Hooks/useCURD";
 import { Link } from "react-router-dom";
+import axios from "../../axiosSecure.js";
+import dynamicTitle from "../../Utilities/dynamicTitle.js";
+
 
 const TABLE_HEAD = [
 {head:"Title"},
@@ -29,6 +31,7 @@ const TABLE_HEAD = [
 ];
 
 export function MyServices(){
+  dynamicTitle("My Services")
     const [serviceData, setServiceData] = useState(null);
     const [searchData, setSearchData] = useState("");
     const [debounce, setDebounce] = useState("");

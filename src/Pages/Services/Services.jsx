@@ -1,12 +1,14 @@
-import { useQuery } from "@tanstack/react-query"
 import AllServiceCard from "../../Components/AllServiceCard"
-import axios from "axios"
 import Loader from "../../Components/Loader/Loader"
 import toastAlert from "../../Utilities/toastAlert"
 import { useEffect, useState } from "react"
+import axios from "../../axiosSecure.js"
+import dynamicTitle from "../../Utilities/dynamicTitle.js"
 
 function Services(){
+  dynamicTitle("All Services")
   const [data, setData] = useState([]);
+  const [cardCount, setCardCount] = useState(8)
   const [isLoading, setISLoading] = useState(true);
   const [selectedValue, setSelectedValue] = useState("lowToHigh");
   const [searchData, setSearchData] = useState(null)
@@ -46,9 +48,7 @@ function Services(){
 
   const handleChange = (e) => {
     setSelectedValue(e.target.value);
-    console.log("Selected Value:", e.target.value);
   };
-  console.log(data)
 
 
 
@@ -81,8 +81,13 @@ function Services(){
         </section>
         <section className="grid lg:grid-cols-4 gap-5 md:grid-cols-2 grid-cols-1">
               {
-                data?.map((cardData)=><AllServiceCard key={cardData._id} cardData={cardData}/>)
+                data?.slice(0,cardCount).map((cardData)=><AllServiceCard key={cardData._id} cardData={cardData}/>)
               }
+        </section>
+        <section className="flex justify-center items-center my-10">
+          {cardCount > 8 ? <button onClick={()=>setCardCount(pre=>pre-4)} className="text-lg px-8 py-2 rounded-s-full bg-defaultColor text-inherit font-heading font-semibold tracking-wide">Prev</button>:""}
+          <div className="flex-1"/>
+          {cardCount <data?.length ? <button onClick={()=>setCardCount(pre=>pre + 4)} className="text-lg px-8 py-2 rounded-e-full bg-defaultColor text-inherit font-heading font-semibold tracking-wide">Next</button>:""}
         </section>
       </section>
   )

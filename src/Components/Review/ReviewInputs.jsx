@@ -42,7 +42,6 @@ function ReviewInputs({serviceID, prevReview, service}){
                 addReviews(finalReview);
                 
             }else{
-                console.log("Edit Mode Patch call");
                 updateMyReview(data,prevReview._id)
             }
             reset({

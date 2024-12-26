@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axiosSecure.js";
 import { CURDContext } from "../Context/AllContext"
 import toastAlert from "../Utilities/toastAlert";
 
@@ -96,7 +96,6 @@ function CURDProvider({children}){
             if(response.status >= 200 && response.status < 300){
                 const message = response.data.message;
                 toastAlert("success",message)
-                console.log(response)
             }else{
                 throw new Error("Error in Updating Review")
             }
@@ -104,6 +103,7 @@ function CURDProvider({children}){
             toastAlert('error',error.message)
         }
     }
+
 
     const CURDObject={
         addService,

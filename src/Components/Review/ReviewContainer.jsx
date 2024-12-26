@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import ReviewCard from "./ReviewCard"
 import ReviewInputs from "./ReviewInputs"
-import axios from "axios"
 import Loader from "../Loader/Loader"
 import useAuth from "../../Hooks/useAuth"
-
+import axios from "../../axiosSecure.js"
 function ReviewContainer({id, service}){
     const {userData} = useAuth();
     const {isLoading, isFetching, isError,error, data} = useQuery({
@@ -25,7 +24,6 @@ function ReviewContainer({id, service}){
     }
 
 
-    // console.log(data)
 
 
   return (

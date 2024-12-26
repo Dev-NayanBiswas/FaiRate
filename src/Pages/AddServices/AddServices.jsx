@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import formateDate from "../../Utilities/formateDate";
 import useCURD from "../../Hooks/useCURD";
+import dynamicTitle from "../../Utilities/dynamicTitle";
 
 function AddServices() {
+  dynamicTitle("Add Service")
   const redirect = useNavigate();
   const {userData} = useAuth();
   const {addService} = useCURD();

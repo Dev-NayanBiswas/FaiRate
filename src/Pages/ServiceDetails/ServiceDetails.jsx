@@ -21,7 +21,6 @@ function ServiceDetails() {
     category,
     reviewCount
   } = location.state;
-  console.log(location.state)
 
   return (
     <section>

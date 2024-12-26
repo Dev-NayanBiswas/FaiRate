@@ -6,13 +6,14 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import GoogleSignin from "../Register/GoogleSignin";
 import toastAlert from "../../Utilities/toastAlert";
+import dynamicTitle from "../../Utilities/dynamicTitle";
 
 
 function Login(){
+  dynamicTitle("Login")
   const [showPass, setShowPass] = useState(false);
   const redirect = useNavigate();
   const location = useLocation();
-  console.log(location)
   const {signingWithEmail} = useAuth();
   const {handleSubmit, register, formState:{errors}, reset} = useForm()
 

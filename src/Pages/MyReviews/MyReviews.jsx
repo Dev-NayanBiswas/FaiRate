@@ -1,16 +1,18 @@
 import alertHandler from "../../Utilities/alertHandler.js"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
 import Loader from "../../Components/Loader/Loader"
 import MyReviewTable from "../../Components/MyReviewTable/MyReviewTable.jsx"
 import useAuth from "../../Hooks/useAuth.jsx"
+import axios from "../../axiosSecure.js"
+import dynamicTitle from "../../Utilities/dynamicTitle.js"
 
 function MyReviews(){
+  dynamicTitle("My Reviews")
   const {userData} = useAuth()
   const email = userData?.email;
   const {data, isError, error, isFetching, isLoading} = useQuery({
     queryKey:["MyReviews", email],
-    queryFn:()=>axios.get(`/serviceReviews?email=${email}`).then(res=>res.data.result),
+    queryFn:()=>axios.get(`/myReviews?email=${email}`).then(res=>res.data.result),
     enabled:!!email,
     refetchInterval:500,
   })

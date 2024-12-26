@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import axios from "../axiosSecure.js"
 import CountUp from "react-countup"
 import Loader from "./Loader/Loader"
 import toastAlert from "../Utilities/toastAlert"
@@ -22,7 +22,6 @@ function CountUpContainer(){
       setTotalReview(reviewTotal) 
       const userCount = [...new Set(data?.map(({email})=>email))];
       setUsers(userCount?.length)
-      console.log(userCount?.length)
     }
     
     reviewCount()
@@ -39,7 +38,7 @@ function CountUpContainer(){
 
   return (
     <>
-        <section className="flex justify-center items-center gap-20 my-10">
+        <section className="flex justify-center items-center lg:gap-20 gap-4 my-10">
         <section className="flex justify-center flex-col items-center">
             <section className="text-5xl font-semibold font-heading p-5 rounded-lg bg-defaultColor/25 w-[120px] flex justify-center items-center">
                 {data?.length && <CountUp  end={data?.length} enableScrollSpy={true} scrollSpyDelay={5} scrollSpyOnce={false} duration={10}/>}

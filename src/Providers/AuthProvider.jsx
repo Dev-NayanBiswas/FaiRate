@@ -11,6 +11,8 @@ import {
   } from "firebase/auth";
 import { AuthContext } from "../Context/AllContext.jsx";
 import toastAlert from "../Utilities/toastAlert.js";
+import axios from "../axiosSecure.js";
+import useCURD from "../Hooks/useCURD.jsx";
 
 
 function AuthProvider({children}){
@@ -58,8 +60,27 @@ function AuthProvider({children}){
     //! Observer 
     useEffect(()=>{
       const subscriber = onAuthStateChanged(auth,(currentUser)=>{
+        if(currentUser?.email){
+          const userData = {
+            name:currentUser?.displayName,
+            email:currentUser?.email,
+            photo:currentUser?.photoURL
+          }
+          
+          const user = {email : currentUser.email};
+          axios.post('/jsonWebToken', user)
+          .then(res=>{
+            console.log(res.data)
+            setLoading(false)
+          })
+
+        }else{
+          axios.post('/logout',{})
+          .then(res=>{
+            setLoading(false)
+            console.log(res.data.message)})
+        }
         setUserData(currentUser)
-        setLoading(false)
         return ()=>{
           subscriber()
         }

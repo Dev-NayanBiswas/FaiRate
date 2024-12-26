@@ -27,8 +27,6 @@ function UpdateServices({serviceData,onModalClose}){
       
   function handleUpsertService(data){
     const newData = {...data,updatedOn:formateDate()}
-    console.log(newData)
-    console.log(_id);
     updateService(newData,_id)
     onModalClose()
   }

@@ -1,12 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth"
 import toastAlert from "../../Utilities/toastAlert";
+import { FcGoogle } from "react-icons/fc";
 
 function GoogleSignin(){
     const location = useLocation();
     const redirect = useNavigate()
     const {googleLogin, userData} = useAuth();
-    console.log(userData)
 
     function googleHandler(){
         googleLogin()
@@ -18,7 +18,7 @@ function GoogleSignin(){
     }
   return (
     <>
-        <span onClick={googleHandler} className="bg-defaultColor/45 cursor-pointer w-12 h-12 self-center flex justify-center items-center aspect-square rounded-full">G</span>
+        <span onClick={googleHandler} className="bg-defaultColor/45 cursor-pointer w-12 h-12 self-center flex justify-center items-center aspect-square rounded-full"><FcGoogle size={30}/></span>
     </>
   )
 }

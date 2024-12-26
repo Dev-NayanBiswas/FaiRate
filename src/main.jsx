@@ -12,6 +12,7 @@ import AuthProvider from './Providers/AuthProvider.jsx'
 
 
 axios.defaults.baseURL = 'http://localhost:5000'
+axios.defaults.withCredentials = true;
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
