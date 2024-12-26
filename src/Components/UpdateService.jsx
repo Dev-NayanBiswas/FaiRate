@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useCURD from "../Hooks/useCURD";
 import formateDate from "../Utilities/formateDate";
+import {motion} from "motion/react"
 
 
 function UpdateServices({serviceData,onModalClose}){
@@ -32,7 +33,10 @@ function UpdateServices({serviceData,onModalClose}){
     <>
         <section>
             <h1 className="text-center my-10 text-4xl font-semibold font-heading text-defaultColor">Update Service . . .</h1>
-        <form className="flex-col flex gap-5" onSubmit={handleSubmit(handleUpsertService)}>
+        <motion.form
+        initial={{opacity:0, scale:0.5, y:-50}}
+        animate={{opacity:1, scale:1, y:0, transition:{duration:1, type:'spring'}}}
+         className="flex-col flex gap-5" onSubmit={handleSubmit(handleUpsertService)}>
             {/* Image */}
         <section className="md:w-8/12 w-11/12  mx-auto">
           <input 
@@ -132,7 +136,7 @@ function UpdateServices({serviceData,onModalClose}){
         <section className="flex gap-10 md:w-8/12 w-11/12  mx-auto">
         <button type="submit" className="formBtn flex-1">Update Service</button>
         </section>
-        </form>
+        </motion.form>
         </section>
     </>
   )

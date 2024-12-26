@@ -1,58 +1,108 @@
->React
->React-Router-Dom
->TailwindCss
->Firebase
->React-Hook-Form
->DaisyUi
->Axios
->TanStack-Query
->Lenis-Scroll
->motion
->hero/icons
->React-Icons
+<p>
+<a>
+<h1 align="center">FaiRate</h1>
+<p align="center">Service sharing Platform</p>
+</a>
+</p>
 
-clientPrivate:
-clientClassroom:
-serverPrivate:
-serverClassroom:
+***
+#### *Purpose*
+*The purpose of this website is to create a collaborative platform where users can review, share, and interact with various services. It allows users to log in securely, add their services, and provide valuable insights through detailed reviews. By enabling users to manage their contributions and explore others' feedback, the system fosters informed decision-making and trust within the community. This platform also serves as a practical learning tool, demonstrating the implementation of a full-stack application. It highlights key functionalities such as user authentication, seamless CRUD operations, secure database management, and interactive review systems, making it a comprehensive and engaging experience.*
 
-
-
-
-
-<!--  -->
-
-
-assignment11
-
-clientPrivate = git remote add clientPrivate https://github.com/Dev-NayanBiswas/Assignment-11-Client.git
-clientClassroom = git remote add clientClassroom https://github.com/programming-hero-web-course2/b10a11-client-side-Dev-NayanBiswas
-
-serverPrivate = git remote add serverPrivate https://github.com/Dev-NayanBiswas/Assignment-11-Server.git
-serverClassroom =  git remote add serverClassroom https://github.com/programming-hero-web-course2/b10a11-server-side-Dev-NayanBiswas
+#### *Key Features*
+*User information are secured here with google Firebase auth*
+- *User can Roaming here freely and can share services*
+- *Only signed in user can share their thoughts in this platform*
+- *User can check their contribution and even can update it whenever they need to do*
+- *Google sign in and email sign is so simple no need to verify email or password **(Note:password should be 6characters long and must have a special character, one uppercase and lowercase letters)***
+- *only Signed up user can post, edit, delete reviews*
+- *On detail page user will see the review cunt of that specific service and can add their own reviews there*
+- *Only Signed in user can add services, and can update or delete his post*
 
 
 
-An exceptional web development service provider! Highly professional, reliable, and skilled. Delivers top-notch websites tailored to client needs. Excellent communication, quick turnaround, and outstanding results. Highly recommend for innovative, user-friendly web solutions. Truly a great service provider!
+
+#### *Features*
+***This simple single page website was created with-***
+- ***Framer Motion***
+  - Basic Enter Animation.
+  - Gestures.
+  - WhileInView
+  
+- ***React with Vite***
+    - useState 
+    - useEffect,
+    - Context API..
+- ***React Router Dom***
+  - useRouterError,
+  - Navigate Component,
+  - Outlet,  
+  - useNavigate,
+  - useLocation,
+  - Link
+  - NavLink
+- ***Firebase Authentications***
+  - Google SigIn
+  - Sign Up with Email and Password
+  - Update Profile
+  - Signin with Email & Password
+
+- ***Express js***
+  - POST
+  - GET
+  - PUT
+  - PATCH
+  - DELETE methods
+- ***Node js & MongoDB.***
+  - insertOne()
+  - find()
+  - findOne()
+  - DeleteOne()
+  - updateOne()
+- ***Others***
+  - tanStackQuery
+  - axios
+  - react-hook-form
+  - react-rating-stars-component
+  - react-toastify
+  - react-countUp 
+  - sweetalert2
+  - material-tailwind
+  - daisy-ui
+  - lenis
 
 
-Jenny (Designer):
-Jenny's creativity and expertise in design have brought visually stunning elements to life, elevating the website's aesthetic appeal.
 
-John (Web Developer):
-John’s technical brilliance ensures seamless functionality, crafting a robust and efficient foundation for this innovative website.
 
-Lukaku (SEO Optimizer):
-Lukaku’s strategic optimization techniques have improved visibility and search rankings, driving organic traffic and enhancing the site's reach.
 
-Ovi (Junior Developer):
-Ovi’s dedication and coding skills have contributed significantly to building and refining the website’s dynamic features.
+***
+[_Feel Free to Visit **FaiRate**_](https://assignment-11-fairate.netlify.app/)
 
-Nayan (Graphics Designer):
-Nayan’s exceptional graphic design work adds vibrancy and creativity, making the website visually compelling and engaging.
+<br/>
+<br/>
+<br/>
+<br/>
+<p>
+    <a>
+    <h4><i>Drawbacks and Limitations</i></h4>
+    </a>
+    
+</p>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-Sam (Instructor):
-Sam's guidance and teaching have empowered the team, fostering skills and collaboration for the website’s successful development.
 
-Bill (Manager):
-Bill’s leadership and organizational prowess have ensured smooth project management, keeping the team aligned and achieving milestones effectively.
+### *Thanks for Visiting*
+### <a>*FaiRate*</a>
+
+***Learning to write programs stretches your mind, and helps you think better, creates a way of thinking about things that I think is helpful in all domains.***
+
+<a> ― *Bill Gates*</a> 
+
+
+
+
+

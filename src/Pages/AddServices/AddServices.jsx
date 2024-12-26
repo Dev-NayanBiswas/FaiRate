@@ -4,6 +4,7 @@ import useAuth from "../../Hooks/useAuth";
 import formateDate from "../../Utilities/formateDate";
 import useCURD from "../../Hooks/useCURD";
 import dynamicTitle from "../../Utilities/dynamicTitle";
+import {motion} from "motion/react";
 
 function AddServices() {
   dynamicTitle("Add Service")
@@ -35,7 +36,13 @@ function AddServices() {
     <>
         <section>
           <h1 className="text-center md:text-5xl text-3xl text-defaultColor font-semibold font-heading my-6">Add Service . . .</h1>
-        <form className="flex-col flex gap-5" onSubmit={handleSubmit(handleUpsertService)}>
+        <motion.form
+        initial={{y:-25, scale:0.5,opacity:0}}
+        animate={{opacity:1, scale:1, y:0, transition:{
+          duration:2,
+          type:'spring',
+        }}}
+         className="flex-col flex gap-5" onSubmit={handleSubmit(handleUpsertService)}>
             {/* Image */}
         <section className="md:w-8/12 w-11/12  mx-auto">
           <input 
@@ -135,7 +142,7 @@ function AddServices() {
         <section className="flex gap-10 md:w-8/12 w-11/12  mx-auto">
         <button type="submit" className="formBtn flex-1">Add Service</button>
         </section>
-        </form>
+        </motion.form>
         </section>
     </>
   )
