@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 import AuthProvider from './Providers/AuthProvider.jsx'
 
 
-axios.defaults.baseURL = 'http://localhost:5000'
+axios.defaults.baseURL = 'https://assignment-11-server-rust-eight.vercel.app'
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(

@@ -11,14 +11,14 @@ import {
   } from "firebase/auth";
 import { AuthContext } from "../Context/AllContext.jsx";
 import toastAlert from "../Utilities/toastAlert.js";
-import useAxios from "../Hooks/useAxios.jsx";
+import axios from "axios";
+
 
 
 
 function AuthProvider({children}){
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const axios = useAxios()
 
     const googleProvider = new GoogleAuthProvider();
 

@@ -4,19 +4,22 @@ import Loader from "../../Components/Loader/Loader"
 import MyReviewTable from "../../Components/MyReviewTable/MyReviewTable.jsx"
 import useAuth from "../../Hooks/useAuth.jsx"
 import dynamicTitle from "../../Utilities/dynamicTitle.js"
-import useAxios from "../../Hooks/useAxios.jsx"
+import axios from "axios"
+
 
 function MyReviews(){
   dynamicTitle("My Reviews")
-  const axiosInstance = useAxios();
+
   const {userData} = useAuth()
   const email = userData?.email;
   const {data, isError, error, isFetching, isLoading} = useQuery({
     queryKey:["MyReviews", email],
-    queryFn:()=>axiosInstance.get(`/myReviews?email=${email}`).then(res=>res?.data?.result),
+    queryFn:()=>axios.get(`/myReviews?email=${email}`).then(res=>res?.data?.result),
     enabled:!!email,
     refetchInterval:500,
   })
+
+  console.log(data);
 
 
   if(isLoading){

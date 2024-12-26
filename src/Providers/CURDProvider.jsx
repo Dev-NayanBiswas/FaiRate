@@ -1,14 +1,14 @@
+import axios from "axios";
 import { CURDContext } from "../Context/AllContext"
-import useAxios from "../Hooks/useAxios.jsx";
 import toastAlert from "../Utilities/toastAlert";
 
 function CURDProvider({children}){
-    const axiosInstance = useAxios();
+
 
     //!Add A Service 
     async function addService(data){
         try{
-            const response = await axiosInstance.post('/addService', data);
+            const response = await axios.post('/addService', data);
             if(response.status >= 200 && response.status < 300){
                 const message = await response.data.message;
                 toastAlert("success", message)
@@ -22,7 +22,7 @@ function CURDProvider({children}){
     //! Update MyService 
     async function updateService(data,id){
         try{
-            const response = await axiosInstance.put(`/updateService/${id}`, data);
+            const response = await axios.put(`/updateService/${id}`, data);
             if(response.status >= 200 && response.status < 300){
                 const message = await response.data.message;
                 toastAlert("success", message)
@@ -35,7 +35,7 @@ function CURDProvider({children}){
     //! Delete MyService 
     async function deleteMyService(id){
         try{
-            const response = await axiosInstance.delete(`/myService/${id}`);
+            const response = await axios.delete(`/myService/${id}`);
             if(response.status >= 200 && response.status < 300){
                 const message = await response.data.message;
                 toastAlert("success", message);
@@ -48,7 +48,7 @@ function CURDProvider({children}){
     //! Add & Update ReviewCount 
     async function addReviewCount(id){
         try{
-            const response = await axiosInstance.patch(`/services/${id}`);
+            const response = await axios.patch(`/services/${id}`);
             if(response.status >= 200 && response.status < 300){
                 const message = await response.data.message;
                 toastAlert("success",message)
@@ -63,7 +63,7 @@ function CURDProvider({children}){
     //! Add Reviews 
     async function addReviews(data){
         try{
-            const response = await axiosInstance.post("/allReviews", data);
+            const response = await axios.post("/allReviews", data);
             if(response.status >= 200 && response.status < 300){
                 const message = response.data.message;
                 toastAlert("success",message)
@@ -78,7 +78,7 @@ function CURDProvider({children}){
     //! Delete myReview 
     async function deleteReview(id){
         try{
-            const response = await axiosInstance.delete(`/myReviews/${id}`);
+            const response = await axios.delete(`/myReviews/${id}`);
             if(response.status >= 200 && response.status < 300){
                 const message = response.data.message;
                 toastAlert("success",message)
@@ -93,7 +93,7 @@ function CURDProvider({children}){
     //! Update MyREview 
     async function updateReview(cardData, id){
         try{
-            const response = await axiosInstance.put(`/updateReview/${id}`, cardData);
+            const response = await axios.put(`/updateReview/${id}`, cardData);
             if(response.status >= 200 && response.status < 300){
                 const message = response.data.message;
                 toastAlert("success",message)
