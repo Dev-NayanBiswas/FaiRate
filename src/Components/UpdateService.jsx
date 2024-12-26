@@ -1,6 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useAuth from "../Hooks/useAuth";
 import useCURD from "../Hooks/useCURD";
 import formateDate from "../Utilities/formateDate";
 
@@ -8,8 +7,6 @@ import formateDate from "../Utilities/formateDate";
 function UpdateServices({serviceData,onModalClose}){
    const {_id,serviceTitle,description,companyName,category,price,serviceImage,website} = serviceData || {}
   const redirect = useNavigate();
-  const location = useLocation();
-  const {userData} = useAuth();
   const {updateService} = useCURD();
   const {handleSubmit, register, formState:{errors}, reset} = useForm({
     defaultValues:{

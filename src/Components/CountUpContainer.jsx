@@ -10,7 +10,7 @@ function CountUpContainer(){
   const[totalReview, setTotalReview]=useState(0)
   const {isError,error, isLoading, data} = useQuery({
     queryKey:["CountDown"],
-    queryFn:()=>axios.get('/services').then(res=>res.data)
+    queryFn:()=>axios.get('/services').then(res=>res?.data)
   })
 
 

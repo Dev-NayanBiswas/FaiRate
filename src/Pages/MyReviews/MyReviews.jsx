@@ -13,7 +13,7 @@ function MyReviews(){
   const email = userData?.email;
   const {data, isError, error, isFetching, isLoading} = useQuery({
     queryKey:["MyReviews", email],
-    queryFn:()=>axiosInstance.get(`/myReviews?email=${email}`).then(res=>res.data.result),
+    queryFn:()=>axiosInstance.get(`/myReviews?email=${email}`).then(res=>res?.data?.result),
     enabled:!!email,
     refetchInterval:500,
   })

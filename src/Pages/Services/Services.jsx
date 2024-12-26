@@ -17,7 +17,7 @@ function Services(){
     async function fetchServices(){
       try{
         const response = await axios.get(`/services${searchData? `?search=${searchData}`:""}`);
-        const result = await response.data;
+        const result = await response?.data;
         setData(result)
         setISLoading(false)
       }catch(error){
@@ -81,7 +81,7 @@ function Services(){
         </section>
         <section className="grid lg:grid-cols-4 gap-5 md:grid-cols-2 grid-cols-1">
               {
-                data?.slice(0,cardCount).map((cardData)=><AllServiceCard key={cardData._id} cardData={cardData}/>)
+                data && data?.slice(0,cardCount).map((cardData)=><AllServiceCard key={cardData._id} cardData={cardData}/>)
               }
         </section>
         <section className="flex justify-center items-center my-10">

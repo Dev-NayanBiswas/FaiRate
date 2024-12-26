@@ -23,7 +23,7 @@ function ReviewInputs({serviceID, prevReview, service}){
     }
 
     function formHandler(data){
-        if (!data.rating || data.rating === 0){
+        if (!data?.rating || data?.rating === 0){
             setError("rating", {
                 type: "manual",
                 message: "Rate this Movie",

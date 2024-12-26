@@ -54,7 +54,7 @@ export function MyServices(){
             params:{email, search}
         })
 
-        return response.data.result
+        return response?.data?.result
     }
     const {data, isError, isLoading, error, refetch} = useQuery({
         queryKey:["MyServices", email, debounce],
@@ -138,7 +138,7 @@ export function MyServices(){
             <tbody>
               {data?.map(
                 (service, index) => {
-                  const isLast = index === data.length - 1;
+                  const isLast = index === data?.length - 1;
                   const classes = isLast ? "p-4" : "p-4 border-b border-gray-300";
      
                   return (
