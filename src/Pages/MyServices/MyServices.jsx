@@ -100,6 +100,7 @@ export function MyServices(){
 
   return (
     <section>
+      <h1 className="text-center md:text-5xl text-3xl text-defaultColor font-semibold font-heading my-6">My Service . . .</h1>
         {
           data?.length ? <Card className="h-full w-full overflow-scroll bg-inherit !text-inherit">
           <CardHeader

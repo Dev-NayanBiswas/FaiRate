@@ -34,6 +34,7 @@ function AddServices() {
   return (
     <>
         <section>
+          <h1 className="text-center md:text-5xl text-3xl text-defaultColor font-semibold font-heading my-6">Add Service . . .</h1>
         <form className="flex-col flex gap-5" onSubmit={handleSubmit(handleUpsertService)}>
             {/* Image */}
         <section className="md:w-8/12 w-11/12  mx-auto">

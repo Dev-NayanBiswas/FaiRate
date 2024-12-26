@@ -40,7 +40,7 @@ function Register(){
   return (
     <>
       <section className="my-36">
-        <h1 className="md:w-8/12 w-11/12  mx-auto my-10 text-defaultColor text-4xl font-semibold font-heading text-left">Register</h1>
+        <h1 className="md:w-8/12 w-11/12  mx-auto my-10 text-defaultColor text-4xl font-semibold font-heading text-left">Register . . .</h1>
         <form className="flex-col flex gap-5" onSubmit={handleSubmit(handleRegister)}>
         <div className="md:w-8/12 w-11/12  mx-auto">
           <input id="name" 

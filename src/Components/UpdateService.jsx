@@ -31,7 +31,7 @@ function UpdateServices({serviceData,onModalClose}){
   return (
     <>
         <section>
-            <h1 className="text-center my-10 text-4xl font-semibold font-heading text-defaultColor">Update Service</h1>
+            <h1 className="text-center my-10 text-4xl font-semibold font-heading text-defaultColor">Update Service . . .</h1>
         <form className="flex-col flex gap-5" onSubmit={handleSubmit(handleUpsertService)}>
             {/* Image */}
         <section className="md:w-8/12 w-11/12  mx-auto">

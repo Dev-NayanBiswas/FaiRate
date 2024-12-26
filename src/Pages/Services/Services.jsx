@@ -54,6 +54,7 @@ function Services(){
 
   return (
       <section className="">
+        <h1 className="text-center md:text-5xl text-3xl text-defaultColor font-semibold font-heading my-6">All Service . . .</h1>
         <section>
         <section className="flex md:flex-row flex-col-reverse justify-between items-center my-10">
         <section className="flex flex-col py-4">
