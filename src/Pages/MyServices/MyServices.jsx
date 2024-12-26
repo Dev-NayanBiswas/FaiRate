@@ -17,8 +17,8 @@ import toastAlert from "../../Utilities/toastAlert";
 import UpdateServices from "../../Components/UpdateService";
 import useCURD from "../../Hooks/useCURD";
 import { Link } from "react-router-dom";
-import axios from "../../axiosSecure.js";
 import dynamicTitle from "../../Utilities/dynamicTitle.js";
+import useAxios from "../../Hooks/useAxios.jsx";
 
 
 const TABLE_HEAD = [
@@ -32,6 +32,7 @@ const TABLE_HEAD = [
 
 export function MyServices(){
   dynamicTitle("My Services")
+  const axiosInstance = useAxios();
     const [serviceData, setServiceData] = useState(null);
     const [searchData, setSearchData] = useState("");
     const [debounce, setDebounce] = useState("");
@@ -49,7 +50,7 @@ export function MyServices(){
 
 
     async function myServiceFetcher(email,search){
-        const response = await axios.get("/myServices", {
+        const response = await axiosInstance.get("/myServices", {
             params:{email, search}
         })
 

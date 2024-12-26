@@ -11,13 +11,14 @@ import {
   } from "firebase/auth";
 import { AuthContext } from "../Context/AllContext.jsx";
 import toastAlert from "../Utilities/toastAlert.js";
-import axios from "../axiosSecure.js";
-import useCURD from "../Hooks/useCURD.jsx";
+import useAxios from "../Hooks/useAxios.jsx";
+
 
 
 function AuthProvider({children}){
   const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const axios = useAxios()
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -61,12 +62,6 @@ function AuthProvider({children}){
     useEffect(()=>{
       const subscriber = onAuthStateChanged(auth,(currentUser)=>{
         if(currentUser?.email){
-          const userData = {
-            name:currentUser?.displayName,
-            email:currentUser?.email,
-            photo:currentUser?.photoURL
-          }
-          
           const user = {email : currentUser.email};
           axios.post('/jsonWebToken', user)
           .then(res=>{

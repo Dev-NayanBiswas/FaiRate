@@ -1,7 +1,7 @@
 import ServiceCard from "../ServiceCard"
 import { useQuery } from "@tanstack/react-query"
 import Loader from "../Loader/Loader"
-import axios from "../../axiosSecure.js"
+import axios from "axios"
 
 function FeaturedServices(){
     const {data, isLoading, isError, isFetching, error} = useQuery(

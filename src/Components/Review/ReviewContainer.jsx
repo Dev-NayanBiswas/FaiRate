@@ -3,12 +3,13 @@ import ReviewCard from "./ReviewCard"
 import ReviewInputs from "./ReviewInputs"
 import Loader from "../Loader/Loader"
 import useAuth from "../../Hooks/useAuth"
-import axios from "../../axiosSecure.js"
+import useAxios from "../../Hooks/useAxios.jsx"
 function ReviewContainer({id, service}){
     const {userData} = useAuth();
+    const axiosInstance = useAxios()
     const {isLoading, isFetching, isError,error, data} = useQuery({
         queryKey:["serviceReviews", [id]],
-        queryFn:()=>axios.get(`/serviceReviews?serviceID=${id}`).then(res=>res.data.result),
+        queryFn:()=>axiosInstance.get(`/serviceReviews?serviceID=${id}`).then(res=>res.data.result),
         enabled:!!id,
         refetchInterval:200
         })

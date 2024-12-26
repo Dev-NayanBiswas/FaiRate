@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
-const CURDContext = createContext(null);
-const AuthContext = createContext(null);
+const CURDContext = createContext();
+const AuthContext = createContext();
 
 export {
     CURDContext,

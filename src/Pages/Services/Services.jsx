@@ -2,8 +2,8 @@ import AllServiceCard from "../../Components/AllServiceCard"
 import Loader from "../../Components/Loader/Loader"
 import toastAlert from "../../Utilities/toastAlert"
 import { useEffect, useState } from "react"
-import axios from "../../axiosSecure.js"
 import dynamicTitle from "../../Utilities/dynamicTitle.js"
+import axios from "axios"
 
 function Services(){
   dynamicTitle("All Services")

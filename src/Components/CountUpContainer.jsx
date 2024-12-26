@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
-import axios from "../axiosSecure.js"
 import CountUp from "react-countup"
 import Loader from "./Loader/Loader"
 import toastAlert from "../Utilities/toastAlert"
 import { useEffect, useState } from "react"
+import axios from "axios"
 
 function CountUpContainer(){
   const[users,setUsers]=useState(0)
