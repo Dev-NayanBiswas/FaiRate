@@ -5,14 +5,31 @@ import {
     Typography,
     Avatar,
   } from "@material-tailwind/react";
+  import {motion} from "motion/react"
+
 import Button from "./Loader/Button";
    
-function ServiceCard({cardData}){
+function ServiceCard({idx,cardData}){
   const {_id,website,serviceTitle,serviceImage,price,description,companyName,category,name,userPhoto,publishedOn} = cardData || {}
     return (
-      <Card
+      <motion.Card
+      initial={{
+        y:'100px',
+        opacity:0,
+        scale:0.9
+      }}
+      whileInView={{
+        y:0,
+        opacity:1,
+        scale:1,
+        transition:{
+          delay:idx/5,
+          type:"spring",
+          duration:0.5
+        }
+      }}
         shadow={false}
-        className="relative w-full overflow-hidden flex flex-col items-end"
+        className="relative w-full overflow-hidden flex flex-col items-end rounded-xl"
       >
         <CardHeader
         style={{
@@ -63,7 +80,7 @@ function ServiceCard({cardData}){
           </section>
           </section>
         </CardBody>
-      </Card>
+      </motion.Card>
     );
   }
 

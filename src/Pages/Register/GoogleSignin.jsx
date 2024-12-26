@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth"
 import toastAlert from "../../Utilities/toastAlert";
 import { FcGoogle } from "react-icons/fc";
+import {motion} from "motion/react";
 
 function GoogleSignin(){
     const location = useLocation();
@@ -18,7 +19,15 @@ function GoogleSignin(){
     }
   return (
     <>
-        <span onClick={googleHandler} className="bg-defaultColor/45 cursor-pointer w-12 h-12 self-center flex justify-center items-center aspect-square rounded-full"><FcGoogle size={30}/></span>
+        <motion.span
+        whileHover={{
+          scale:1.2,
+          transition:{
+            type:"spring",
+            damping:4
+          }
+        }}
+         onClick={googleHandler} className="bg-defaultColor/45 cursor-pointer w-12 h-12 self-center flex justify-center items-center aspect-square rounded-full"><FcGoogle size={30}/></motion.span>
     </>
   )
 }

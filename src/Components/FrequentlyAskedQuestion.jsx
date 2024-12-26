@@ -96,7 +96,7 @@ function FrequentlyAskedQuestions(){
             opacity:0.2,
             x:'50vw'
           }}
-          animate={{
+          whileInView={{
             opacity:1,
             x:0,
             transition:{

@@ -2,6 +2,7 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import Swal from 'sweetalert2'
 import { FaPencil } from "react-icons/fa6";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {motion} from "motion/react";
 import {
   Card,
   Input,
@@ -142,7 +143,10 @@ export function MyServices(){
                   const classes = isLast ? "p-4" : "p-4 border-b border-gray-300";
      
                   return (
-                    <tr key={crypto.randomUUID()}>
+                    <motion.tr
+                    initial={{opacity:0, scale:0.7, y:2}}
+                    animate={{opacity:1, scale:1, y:0, transition:{delay:0.1*index, duration:0.5}}}
+                     key={crypto.randomUUID()}>
                       <td className={classes}>
                         <div className="flex items-center gap-1">
                           <Typography
@@ -198,7 +202,7 @@ export function MyServices(){
                           </IconButton>
                         </div>
                       </td>
-                    </tr>
+                    </motion.tr>
                   );
                 },
               )}
@@ -207,7 +211,7 @@ export function MyServices(){
             </Card> : <section className="flex h-[50vh] justify-center items-center flex-col">
               <section >
               <h1 className="font-heading md:text-5xl text-3xl font-semibold text-center">Nothing Contributed Yet</h1>
-              <p className="text-defaultColor font-ubuntu text-center">Feel free to Share what any Service</p>
+              <p className="text-defaultColor font-ubuntu text-center">Feel free to Share any Innovation</p>
               </section>
               <section className="my-6">
                 <Link to="/addServices" className="px-8 py-2 rounded-lg bg-defaultColor/45 text-gray-500 font-semibold tracking-wide">Add Service</Link>

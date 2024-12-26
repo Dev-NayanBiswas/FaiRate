@@ -37,7 +37,7 @@ function MyReviews(){
         </section>
         <section className="grid grid-cols-1 gap-7">
           {
-            data?.map((data, index)=><MyReviewTable key={data._id} cardData={data}/>)
+            data?.map((data, index)=><MyReviewTable idx={index} key={data._id} cardData={data}/>)
           }
         </section>
       </section>

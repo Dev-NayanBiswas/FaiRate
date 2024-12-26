@@ -4,8 +4,9 @@ import ReviewInputs from "../Review/ReviewInputs";
 import { IoClose } from "react-icons/io5";
 import useCURD from "../../Hooks/useCURD";
 import Swal from "sweetalert2";
+import {motion} from "motion/react";
 
-function MyReviewTable({ cardData }){
+function MyReviewTable({ idx, cardData }){
     const {deleteReview} = useCURD()
     const [isOpen, setIsOpen] = useState(false)
     const {serviceTitle,_id,rating,comment,postedDate}=cardData||{}
@@ -34,7 +35,24 @@ function MyReviewTable({ cardData }){
 
   return (
     <>
-      <section className="flex flex-col md:flex-row w-full justify-between md:items-center gap-5 border-defaultColor/35 p-2 border-[1px] rounded-lg px-4">
+      <motion.section
+      initial={{
+        y:'100px',
+        opacity:0,
+        scale:0.5
+      }}
+      animate={{
+        scale:1,
+        y:0,
+        opacity:1,
+        transition:{
+          delay:idx/2,
+          type:"spring",
+          damping:20,
+          duration:0.5
+        }
+      }}
+       className="flex flex-col md:flex-row w-full justify-between md:items-center gap-5 border-defaultColor/35 p-2 border-[1px] rounded-lg px-4">
         <section className="md:w-3/12">
           <div className='flex-col flex'>
             <h1 className='text-lg font-medium font-default whitespace-nowrap'>
@@ -84,7 +102,7 @@ function MyReviewTable({ cardData }){
             </button>
           </div>
         </section>
-      </section>
+      </motion.section>
         {isOpen &&
       <section className="fixed bg-defaultColor/75 z-50 flex top-0 bottom-0 left-0 right-0 justify-center items-center w-full h-full">
              <section className="lg:w-5/12 md:w-9/12 w-11/12 relative bg-gray-300 rounded-xl">

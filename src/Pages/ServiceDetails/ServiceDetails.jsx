@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import ReviewContainer from "../../Components/Review/ReviewContainer";
+import {motion} from 'motion/react';
 
 function ServiceDetails() {
   const location = useLocation();
@@ -32,7 +33,22 @@ function ServiceDetails() {
         backgroundSize:'cover',
         backgroundPosition:'center',
         }} className='group flex flex-col justify-start items-start gap-2 md:w-11/12 w-full h-[50vh] duration-500 relative rounded-lg p-4 bg-defaultColor/15 hover:-translate-y-2 hover:shadow-xl shadow-gray-800'>
-        <section
+        <motion.section
+        initial={{
+          opacity:0,
+          scale:0.5,
+          y:10
+        }}
+        animate={{
+          opacity:1,
+          scale:1,
+          y:0,
+          transition:{
+            duration:0.2,
+            type:"spring",
+            bounce:5
+          }
+        }}
           alt='image here'
           className='absolute duration-700 shadow-md md:group-hover:-translate-y-4 md:group-hover:-translate-x-4 md:-bottom-10 -bottom-10 md:-right-10 translate-x-4 translate-y-14 md:w-1/2 w-10/12 h-3/5 rounded-lg bg-defaultColor/15 p-2'>
           <img
@@ -43,7 +59,7 @@ function ServiceDetails() {
           <section className='absolute duration-700 group-hover:-translate-y-4 bottom-10 md:left-5 translate-x-1/2'>
             <span className='my-5 px-5 text-2xl text-red-500 font-semibold font-heading'>{reviewCount} Reviews</span>
           </section>
-        </section>
+        </motion.section>
 
         <section className='p-4 bg-[#20161f]/75 w-full h-full rounded-lg text-white'>
           <h2 className='md:text-4xl text-2xl font-bold mb-2 text-gray-200 font-heading'>

@@ -82,7 +82,7 @@ function Services(){
         </section>
         <section className="grid lg:grid-cols-4 gap-5 md:grid-cols-2 grid-cols-1">
               {
-                data && data?.slice(0,cardCount).map((cardData)=><AllServiceCard key={cardData._id} cardData={cardData}/>)
+                data && data?.slice(0,cardCount).map((cardData, index)=><AllServiceCard idx={index} key={cardData._id} cardData={cardData}/>)
               }
         </section>
         <section className="flex justify-center items-center my-10">

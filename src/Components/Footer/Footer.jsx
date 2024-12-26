@@ -1,7 +1,8 @@
 import { RiGithubFill } from "react-icons/ri"
 import starIcons from "../../assets/star.svg"
 import { FaFacebook, FaLinkedinIn } from "react-icons/fa"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import {motion} from "motion/react";
 
 function Footer(){
     const allPaths =[
@@ -12,7 +13,21 @@ function Footer(){
     ]
   return (
     <>
-        <footer className="bg-defaultColor/45 dark:bg-gray-900 text-inherit">
+        <motion.footer
+        initial={{
+            opacity:0,
+            scale:0.8,
+            y:50
+        }}
+        whileInView={{
+            opacity:1,
+            scale:1,
+            y:0,
+            transition:{
+                duration:0.5
+            }
+        }}
+         className="bg-defaultColor/45 dark:bg-gray-900 text-inherit">
     <section className="container px-6 py-8 mx-auto">
         <section className="flex flex-col items-center text-center">
             <div className="navbar-start relative">
@@ -41,7 +56,7 @@ function Footer(){
     </section>
         </section>
     </section>
-</footer>
+</motion.footer>
     </>
   )
 }

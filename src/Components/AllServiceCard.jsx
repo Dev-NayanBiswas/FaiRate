@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
+import {motion} from "motion/react"
 
-function AllServiceCard({cardData}){
+function AllServiceCard({idx, cardData}){
   const {
     _id,
     website,
@@ -13,10 +14,25 @@ function AllServiceCard({cardData}){
     reviewCount
   } = cardData || {};
   return (
-<div className="relative flex my-6 flex-col rounded-xl bg-defaultColor/15 !text-inherit bg-clip-border text-gray-700 shadow-md">
-      <div className="relative mx-4 -mt-6 h-60 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-defaultColor/45 to-defaultColor/85">
-      <img className="object-cover h-full w-full" src={serviceImage} alt="" />
-      </div>
+<motion.div
+  initial={{
+    y:'50px',
+    opacity:0
+  }}
+  animate={{
+    y:0,
+    opacity:1,
+    transition:{
+      delay:idx/10,
+      type:"spring",
+      damping:20,
+      duration:0.5
+    }
+  }}
+ className="relative flex my-6 flex-col rounded-xl bg-defaultColor/15 !text-inherit bg-clip-border text-gray-700 shadow-md">
+      <motion.div whileHover={{y:-20,transition:{duration:0.5, type:"spring"}}} className="relative mx-4 -mt-6 h-60 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-defaultColor/45 to-defaultColor/85">
+      <motion.img whileHover={{scale:1.1}} className="object-cover h-full w-full" src={serviceImage} alt="" />
+      </motion.div>
       <section className="flex flex-col">
       <div className="p-6">
         <h5 className="mb-2 block text-2xl font-heading leading-snug tracking-normal text-defaultColor antialiased whitespace-nowrap">
@@ -36,7 +52,7 @@ function AllServiceCard({cardData}){
           Read More
         </Link>
       </div>
-    </div>
+    </motion.div>
 
   )
 }

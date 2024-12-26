@@ -7,6 +7,7 @@ import { useState } from "react";
 import GoogleSignin from "./GoogleSignin";
 import toastAlert from "../../Utilities/toastAlert";
 import dynamicTitle from "../../Utilities/dynamicTitle";
+import {motion} from "motion/react"
 
 function Register(){
   dynamicTitle("Register")
@@ -41,7 +42,22 @@ function Register(){
     <>
       <section className="my-36">
         <h1 className="md:w-8/12 w-11/12  mx-auto my-10 text-defaultColor text-4xl font-semibold font-heading text-left">Register . . .</h1>
-        <form className="flex-col flex gap-5" onSubmit={handleSubmit(handleRegister)}>
+        <motion.form initial={{
+        y:'100px',
+        opacity:0,
+        scale:0.5
+      }}
+      animate={{
+        scale:1,
+        y:0,
+        opacity:1,
+        transition:{
+          delay:0.5,
+          type:"spring",
+          damping:20,
+          duration:0.5
+        }
+      }} className="flex-col flex gap-5" onSubmit={handleSubmit(handleRegister)}>
         <div className="md:w-8/12 w-11/12  mx-auto">
           <input id="name" 
           name="name" 
@@ -111,10 +127,12 @@ function Register(){
         </div>
         <Link to="/login" className="block textarea-sm tracking-wide md:w-8/12 w-11/12  mx-auto">Already have an account! <span className="text-xl text-defaultColor font-semibold">Login</span></Link>
         <section className="flex gap-10 md:w-8/12 w-11/12  mx-auto">
-        <button type="submit" className="formBtn flex-1">Submit</button>
+        <motion.button whileHover={{scale:0.98, transition:{
+          type:"spring",
+        }}} type="submit" className="formBtn flex-1">Submit</motion.button>
         <GoogleSignin/>
         </section>
-        </form>
+        </motion.form>
       </section>
     </>
   )

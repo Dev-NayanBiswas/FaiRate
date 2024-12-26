@@ -28,7 +28,7 @@ function FeaturedServices(){
                 </h1>
             <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
                 {
-                    data?.map((service)=><ServiceCard key={service._id} cardData={service}/>)
+                    data?.map((service, index)=><ServiceCard key={service._id} idx={index} cardData={service}/>)
                 }
             </section>
         </section>

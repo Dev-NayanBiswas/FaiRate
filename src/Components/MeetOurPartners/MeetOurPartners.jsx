@@ -1,18 +1,31 @@
 import { MdOutlineEdit } from "react-icons/md";
 import { SiCssdesignawards } from "react-icons/si";
+import {motion} from "motion/react"
 
 export default function MeetOurPartners(){
     return (
-      <section>
+      <section className="">
         <h1 className="text-center md:text-5xl text-3xl text-defaultColor font-semibold font-heading my-6">Meet Our Partners</h1>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 h-full">
         <div className="grid gap-4">
 
 
 
 
 
-          <div className="group relative overflow-hidden rounded-xl">
+          <motion.div
+          initial={{ opacity:0, x:50}}
+          whileInView={{
+            opacity:1,
+            x:0,
+            transition:{
+              duration:2,
+              delay:0.5,
+              type:"spring",
+              bounce:0.5,
+            }
+          }}
+           className="group relative overflow-hidden rounded-xl">
             <img
               className="h-full max-w-full rounded-lg object-cover object-center"
               src="https://i.ibb.co.com/pfqmPwC/images-q-tbn-ANd9-Gc-SYdop-LSPF5-L9-RS-p6dm6-Qr-SDC3-TO4-BFk-TVGQ-s.jpg"
@@ -26,12 +39,24 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">Content Writer</span>
             </figure>
             </section>
-          </div>
+          </motion.div>
 
 
 
 
-          <div className="group relative rounded-xl overflow-hidden">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:2,
+              delay:1,
+              type:"spring",
+              bounce:0.5,
+            }
+          }}
+           className="group relative rounded-xl overflow-hidden">
             <img
               className="h-full max-w-full rounded-lg object-cover object-center "
               src="https://i.ibb.co.com/dg976N1/graphic-design-page.webp"
@@ -45,13 +70,25 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">by - Chairman</span>
             </figure>
             </section>
-          </div>
+          </motion.div>
 
 
 
 
 
-          <div className="group relative rounded-xl overflow-hidden">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:5,
+              delay:0.2,
+              type:"spring",
+              bounce:0.5,
+            }
+          }}
+           className="group relative rounded-xl overflow-hidden">
             <img
               className="h-full max-w-full rounded-lg object-cover object-center"
               src="https://i.ibb.co.com/fnnZW6T/Jon-snow-0-1536999998.jpg"
@@ -65,7 +102,7 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">Web Dev</span>
             </figure>
             </section>
-          </div>
+          </motion.div>
 
 
 
@@ -78,7 +115,19 @@ export default function MeetOurPartners(){
 
 
 
-          <div className="group relative rounded-xl overflow-hidden">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:5,
+              type:"spring",
+              bounce:0.5,
+              delay:0.2
+            }
+          }}
+           className="group relative rounded-xl overflow-hidden">
             <img
               className="h-full w-full rounded-lg object-cover"
               src="https://i.ibb.co.com/CzG1gzy/84-640x640-exact-v1639052155.jpg"
@@ -92,13 +141,25 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">SEO</span>
             </figure>
             </section>
-          </div>
+          </motion.div>
 
 
 
 
 
-          <div className="group relative rounded-xl overflow-hidden h-[40vh]">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:3,
+              type:"spring",
+              bounce:0.5,
+              delay:0.5
+            }
+          }}
+           className="group relative rounded-xl overflow-hidden h-[40vh]">
             <img
               className="max-w-full rounded-lg object-cover object-center"
               src="https://i.ibb.co.com/p3KKvYV/luke-perry-attends-the-build-series-to-discuss-riverdale-at-news-photo-1721078178.jpg"
@@ -112,10 +173,22 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">Jr Dev</span>
             </figure>
             </section>
-          </div>
+          </motion.div>
 
 
-          <div className="group overflow-hidden relative">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:2,
+              type:"spring",
+              bounce:0.5,
+              delay:0.2
+            }
+          }}
+           className="group overflow-hidden relative">
             <img
               className="h-full max-w-full rounded-lg object-cover object-center"
               src="https://i.ibb.co.com/hs93cR0/MV5-BZTFm-NWQ1-NTct-ZDA2-Ni00-ODAx-LTg3-ZGUt-Njhh-MTNl-ODE0-NWNm-Xk-Ey-Xk-Fqc-Gc-V1.jpg"
@@ -129,14 +202,26 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">Graphics Designer</span>
             </figure>
             </section>
-          </div>
+          </motion.div>
 
 
 
         </div>
 
 
-        <div className="grid gap-4 ">
+        <motion.div
+        initial={{ opacity:0, y:50}}
+        whileInView={{
+          opacity:1,
+          y:0,
+          transition:{
+            duration:2,
+            type:"spring",
+            bounce:0.5,
+            delay:0.5
+          }
+        }}
+         className="grid gap-4 ">
           <div className="group overflow-hidden relative rounded-xl">
             <img
               className="h-full w-full rounded-lg object-cover object-center"
@@ -156,7 +241,19 @@ export default function MeetOurPartners(){
 
 
 
-          <div className="group overflow-hidden relative">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:2,
+              type:"spring",
+              bounce:0.5,
+              delay:0.5
+            }
+          }}
+           className="group overflow-hidden relative">
             <img
               className="h-full w-full rounded-lg object-cover "
               src="https://i.ibb.co.com/Df6bxww/images-q-tbn-ANd9-Gc-R13t-Rckwq-S44od-By9-EJfu-DJ7a8-I9-Hv-NGFNvg-s.jpg"
@@ -170,12 +267,24 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">Manager</span>
             </figure>
             </section>
-          </div>
+          </motion.div>
 
 
 
 
-          <div className="group overflow-hidden relative rounded-xl h-full">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:3,
+              type:"spring",
+              bounce:0.5,
+              delay:0.2
+            }
+          }}
+           className="group overflow-hidden relative rounded-xl h-full">
             <img
               className="h-full max-w-full rounded-lg object-cover object-center"
               src="https://i.ibb.co.com/sC98xmk/11-2024-08-b4fb193ef05e1b363fd9dfb7f0deb5c6.jpg"
@@ -189,13 +298,25 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">Director</span>
             </figure>
             </section>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
 
 
 
-        <div className="grid gap-4">
+        <motion.div
+        initial={{ opacity:0, y:50}}
+        whileInView={{
+          opacity:1,
+          y:0,
+          transition:{
+            duration:2,
+            type:"spring",
+            bounce:0.5,
+            delay:0.2
+          }
+        }}
+         className="grid gap-4">
           <div className="group overflow-hidden h-full relative rounded-xl">
             <img
               className="object-cover max-w-full h-full rounded-lg"
@@ -216,7 +337,19 @@ export default function MeetOurPartners(){
 
 
 
-          <div className="group overflow-hidden relative">
+          <motion.div
+          initial={{ opacity:0, y:50}}
+          whileInView={{
+            opacity:1,
+            y:0,
+            transition:{
+              duration:4,
+              type:"spring",
+              bounce:0.5,
+              delay:0.4
+            }
+          }}
+           className="group overflow-hidden relative">
             <img
               className="h-full max-w-full rounded-lg object-cover object-center"
               src="https://i.ibb.co.com/KxWQFzX/1622044748009-e-2147483647-v-beta-t-AMq57p-Ljcg29w-Bilb-Uj-CWWn1-EIg-O8ju-Qfe7-N7-W8-A-E.jpg"
@@ -230,8 +363,10 @@ export default function MeetOurPartners(){
             <span className="text-xl italic font-ubuntu">Designer</span>
             </figure>
             </section>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
+
+
       </div>
       </section>
     );

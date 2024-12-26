@@ -7,6 +7,7 @@ import { useState } from "react";
 import GoogleSignin from "../Register/GoogleSignin";
 import toastAlert from "../../Utilities/toastAlert";
 import dynamicTitle from "../../Utilities/dynamicTitle";
+import {motion} from "motion/react"
 
 
 function Login(){
@@ -33,7 +34,24 @@ function Login(){
     <>
       <section className="my-36">
         <h1 className="md:w-8/12 w-11/12  mx-auto my-10 text-defaultColor text-4xl font-semibold font-heading text-left">Login</h1>
-        <form className="flex-col flex gap-5" onSubmit={handleSubmit(handleRegister)}>
+        <motion.form
+        initial={{
+          y:'100px',
+          opacity:0,
+          scale:0.5
+        }}
+        animate={{
+          scale:1,
+          y:0,
+          opacity:1,
+          transition:{
+            delay:0.5,
+            type:"spring",
+            damping:20,
+            duration:0.5
+          }
+        }}
+         className="flex-col flex gap-5" onSubmit={handleSubmit(handleRegister)}>
         <div className="md:w-8/12 w-11/12  mx-auto">
           <input id="email" 
           name="email" 
@@ -68,19 +86,21 @@ function Login(){
             }
           })}
           />
-          <span onClick={()=>setShowPass(!showPass)} className="absolute text-inherit text-lg right-4 top-2 cursor-pointer">
+          <motion.span whileHover={{scale:1.2, transition:{type:'spring'}}} onClick={()=>setShowPass(!showPass)} className="absolute text-inherit text-lg right-4 top-2 cursor-pointer">
             {
               showPass? <FaEye/>: <FaEyeSlash/>
             }
-          </span>
+          </motion.span>
           {errors.password && <p className='text-xs text-red-500 italic mt-2 '>{errors.password.message}</p>}
         </div>
         <Link to="/register" className="block textarea-sm tracking-wide md:w-8/12 w-11/12  mx-auto">Create an Account! <span className="text-xl text-defaultColor font-semibold">Register</span></Link>
         <section className="flex gap-10 md:w-8/12 w-11/12  mx-auto">
-        <button type="submit" className="formBtn flex-1">Submit</button>
+        <motion.button whileHover={{scale:0.98, transition:{
+          type:"spring",
+        }}} type="submit" className="formBtn flex-1">Submit</motion.button>
         <GoogleSignin/>
         </section>
-        </form>
+        </motion.form>
       </section>
     </>
   )
