@@ -1,5 +1,12 @@
 <p>
 <a>
+
+<img align="center" src="./src/assets/coverPage2.png"/>
+<img align="center" src="./src/assets/coverPage.png"/>
+</a>
+</p>
+<p>
+<a>
 <h1 align="center">FaiRate</h1>
 <p align="center">Service sharing Platform</p>
 </a>
