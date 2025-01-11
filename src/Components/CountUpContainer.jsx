@@ -10,23 +10,10 @@ function CountUpContainer(){
   const[users,setUsers]=useState(0)
   const[totalReview, setTotalReview]=useState(0)
   const {isError,error, isLoading, data} = useQuery({
-    queryKey:["CountDown"],
+    queryKey:["services"],
     queryFn:()=>axios.get('/services').then(res=>res?.data)
   })
 
-
-  useEffect(()=>{
-    async function reviewCount(){
-      const countReview = await data?.map(({reviewCount})=> reviewCount && reviewCount)
-      .filter(review => review !== undefined && review !== 0 );
-      const reviewTotal = await countReview?.reduce((acc,value)=> acc+value,0);
-      setTotalReview(reviewTotal) 
-      const userCount = [...new Set(data?.map(({email})=>email))];
-      setUsers(userCount?.length)
-    }
-    
-    reviewCount()
-  },[data])
 
   if(isLoading){
     return <Loader/>
@@ -34,6 +21,18 @@ function CountUpContainer(){
   if(isError){
     return toastAlert("error","Error in Count Down")
   }
+
+
+  async function reviewCount(){
+    const countReview = await data?.map(({reviewCount})=> reviewCount && reviewCount)
+    .filter(review => review !== undefined && review !== 0 );
+    const reviewTotal = await countReview?.reduce((acc,value)=> acc+value,0);
+    setTotalReview(reviewTotal) 
+    const userCount = [...new Set(data?.map(({email})=>email))];
+    setUsers(userCount?.length)
+  }
+  
+  reviewCount()
 
   
 
