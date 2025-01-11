@@ -78,22 +78,22 @@
   - lenis
 
 
-***
+<br/>
+
 <p>
 <a>
 <h1 align="center">Routes & Components</h1>
 </a>
 </p>
 
-***
 
 
 ```mermaid
 flowchart LR
 classDef routeStyle fill:#D1E8FF,stroke:#004AAD,stroke-width:2px,color:#004AAD,font-size:18px,font-weight:bold;
 classDef componentStyle fill:#FFEBCD,stroke:#D2691E,stroke-width:2px,color:#8B4513,font-size:18px,font-style:italic;
-classDef secureStyle fill:#00897b80,stroke:red,stroke-width:2px,color:#000,font-size:20px,font-style:italic;
-classDef homeStyle fill:#00897b57,color:#000,font-size:20px,font-style:italic;
+classDef secureStyle fill:#00897b,stroke:#00897b,stroke-width:2px,color:#fff,font-size:20px,font-style:italic;
+classDef homeStyle fill:#00897b57,color:#000,font-size:16px,font-style:italic;
 
 id1([main.jsx Root]) --> id2([MainLayout])
 id2 --> id5([Private Route]) 
@@ -104,7 +104,7 @@ id5-->id42([Add Service])
 id2 --> id8([Home]) --> id9([Home Page])
 id9 --> id20([Banner Carousel])
 id9 --> id21([Feature Services])
-id9 --> id22([User Services and Reviews])
+id9 --> id22([Users,Services & Reviews])
 id9 --> id23([Who we Are])
 id9 --> id24([Our Partners])
 id9 --> id25([FAQ])
@@ -125,24 +125,27 @@ class id20,id21,id22,id23,id24,id25 homeStyle
 ```
 
 
-***
+
+<br/>
+
+
 <p>
 <a>
 <h1 align="center">Server Routers and Handlers</h1>
 </a>
 </p>
 
-***
+
 
 
 ```mermaid
 flowchart RL
 classDef routeStyle fill:#D1E8FF,stroke:#004AAD,stroke-width:2px,color:#004AAD,font-size:18px,font-weight:bold;
 classDef componentStyle fill:#FFEBCD,stroke:#D2691E,stroke-width:2px,color:#8B4513,font-size:18px,font-style:italic;
-classDef secureStyle fill:#00897b80,stroke:red,stroke-width:2px,color:#000,font-size:20px,font-style:italic;
-classDef homeStyle fill:#00897b57,color:#000,font-size:20px,font-style:italic;
+classDef secureStyle fill:#00897b80,stroke:#00897b80,stroke-width:2px,color:#00897b8,font-size:20px,font-style:italic;
+classDef homeStyle fill:#00897b,color:#fff,font-size:16px,font-style:italic;
 
-id2([index.js])
+id2([ index.js])
 id2 --> id5([Config]) 
 id5-->id40([dataBase.js])
 

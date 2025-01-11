@@ -65,6 +65,10 @@ function FrequentlyAskedQuestions(){
       <section
       
        className="flex lg:flex-row flex-col justify-center gap-4">
+        <figure className="lg:w-4/12 w-full flex flex-col justify-center items-center">
+          <img className="" src={myFaq} alt="" />
+        </figure>
+      <section className="lg:w-8/12 w-full">
       <motion.section
       initial={{
         opacity:0,
@@ -101,7 +105,7 @@ function FrequentlyAskedQuestions(){
               ease:"easeInOut"
             }
           }}
-           className='collapse-title h-fit md:text-xl font-heading text-lg font-semibold text-defaultColor italic'>
+           className='collapse-title h-fit md:text-xl font-heading text-[16px] font-semibold text-defaultColor italic'>
             {question}
           </motion.section>
           <section
@@ -112,6 +116,7 @@ function FrequentlyAskedQuestions(){
             )
         }
       </motion.section>
+      </section>
       </section>
 
 
