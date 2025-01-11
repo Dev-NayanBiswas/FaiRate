@@ -23,6 +23,7 @@ import axios from "axios";
 
 
 const TABLE_HEAD = [
+{head:""},
 {head:"Title"},
 {head:"Description"},
 {head:"Category"},
@@ -59,7 +60,6 @@ export function MyServices(){
     const {data, isError, isLoading, error, refetch} = useQuery({
         queryKey:["MyServices", email, debounce],
         queryFn:()=>myServiceFetcher(email, debounce),
-        enabled:!!email,
     })
     
 
@@ -109,11 +109,12 @@ export function MyServices(){
             shadow={false}
             className="mb-2 rounded-none p-2 bg-inherit"
           >
-            <div className="w-full md:w-96">
+            <div className="w-full md:w-96 !text-defaultColor font-heading">
               <Input
+              className="text-defaultColor outline-defaultColor border-defaultColor ring-defaultColor focus:border-defaultColor"
               onChange={(e)=>setSearchData(e.target.value)}
                 label="Search by Title"
-                icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+                icon={<MagnifyingGlassIcon className="h-5 w-5 text-defaultColor font-semibold" />}
               />
             </div>
           </CardHeader>
@@ -127,7 +128,7 @@ export function MyServices(){
                       <Typography
                         color="gray"
                         variant="small"
-                        className="!font-bold"
+                        className="!font-bold text-defaultColor font-heading"
                       >
                         {head}
                       </Typography>
@@ -144,15 +145,23 @@ export function MyServices(){
      
                   return (
                     <motion.tr
-                    initial={{opacity:0, scale:0.7, y:2}}
+                    className="group hover:bg-gray-100/15 transition-all duration-1000"
+                    initial={{opacity:0, scale:1.5, y:2}}
                     animate={{opacity:1, scale:1, y:0, transition:{delay:0.1*index, duration:0.5}}}
                      key={crypto.randomUUID()}>
+                      <td className={classes}>
+                      <section className="avatar">
+              <figure className="md:w-24 w-16 h-16 md:h-24 rounded-2xl">
+               <img className="object-cover rounded-2xl group-hover:ring-2 group-hover:ring-defaultColor transition-all duration-500 ring-offset-2 h-full w-full object-center" src={service.serviceImage} alt="" />
+              </figure>
+        </section>
+                      </td>
                       <td className={classes}>
                         <div className="flex items-center gap-1">
                           <Typography
                             variant="small"
                             color="blue-gray"
-                            className="font-bold text-gray-400"
+                            className="font-bold group-hover:text-defaultColor text-gray-700/85 font-heading transition-all duration-300"
                           >
                             {service.serviceTitle}
                           </Typography>
@@ -161,7 +170,7 @@ export function MyServices(){
                       <td className={classes}>
                         <Typography
                           variant="small"
-                          className="font-normal text-gray-400"
+                          className="font-normal group-hover:text-defaultColor text-gray-700/85 font-heading transition-all duration-300"
                         >
                           {service?.description?.length > 20 ? `${service?.description.slice(0,20)}...`: service?.description}
                         </Typography>
@@ -192,10 +201,10 @@ export function MyServices(){
                       </td>
                       <td className={classes}>
                         <div className="flex items-center gap-2">
-                          <IconButton onClick={()=>handleDelete(service?._id)} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full">
+                          <IconButton onClick={()=>handleDelete(service?._id)} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full transition-all duration-300">
                             <RiDeleteBin6Fill className="h-4 w-4 text-red-400" />
                           </IconButton>
-                          <IconButton onClick={()=>setServiceData(service)} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full">
+                          <IconButton onClick={()=>setServiceData(service)} variant="text" size="md" className="px-4 py-2 bg-green-200/10 rounded-full transition-all duration-300">
                             <FaPencil
                               className="h-4 w-4 text-green-700"
                             />

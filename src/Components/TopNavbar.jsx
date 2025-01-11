@@ -22,7 +22,7 @@ function TopNavbar(){
 
   return (
     <>
-      <div className="navbar mb-10 border-b-2 border-defaultColor/10 min-h-20">
+      <div className="navbar horizontalWidth mb-10 mx-auto border-b-2 border-defaultColor/10 min-h-20 navContainer">
   <div className="navbar-start relative">
     <img className="absolute -top-[11px] -z-20 left-[2px]" src={starIcons} alt="" />
     <h1 className="btn btn-ghost text-4xl font-bold font-heading text-defaultColor ml-4">FaiRate</h1>

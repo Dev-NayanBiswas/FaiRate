@@ -5,7 +5,7 @@ import {motion} from "motion/react"
 export default function MeetOurPartners(){
     return (
       <section className="">
-        <h1 className="text-center md:text-5xl text-3xl text-defaultColor font-semibold font-heading my-6">Meet Our Partners</h1>
+        <h1 className="text-left md:text-5xl text-3xl text-defaultColor font-semibold font-heading md:mb-20 mb-10">Meet Our Partners . . . </h1>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 h-full">
         <div className="grid gap-4">
 

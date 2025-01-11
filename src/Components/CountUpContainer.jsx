@@ -39,7 +39,7 @@ function CountUpContainer(){
 
   return (
     <>
-        <section className="flex justify-center items-center lg:gap-20 gap-4 my-10">
+        <section className="flex justify-center items-center lg:gap-20 gap-4 lg:my-44 md:my-32">
         <motion.section
         initial={{opacity:0, x:-80}}
         whileInView={{opacity:1,x:0, 

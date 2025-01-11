@@ -14,22 +14,22 @@ function Home(){
         <section>
         </section>
         <main>
-          <section>
+          <section className="md:mb-40 mb-16">
             <BannerCarousel/>
           </section>
-          <section>
+          <section className="md:mb-40 mb-16">
           <FeaturedServices/>
           </section>
-          <section>
+          <section className="md:mb-40 mb-16">
         <CountUpContainer/>
           </section>
-          <section>
+          <section className="md:mb-40 mb-16">
             <WhoWeAre/>
           </section>
-          <section className="my-2">
+          <section className="md:mb-40 mb-16">
             <MeetOurPartners/>
           </section>
-          <section>
+          <section className="md:mb-40 mb-16">
             <FrequentlyAskedQuestions/>
           </section>
         </main>

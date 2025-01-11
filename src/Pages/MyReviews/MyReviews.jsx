@@ -1,10 +1,10 @@
-import alertHandler from "../../Utilities/alertHandler.js"
 import { useQuery } from "@tanstack/react-query"
 import Loader from "../../Components/Loader/Loader"
 import MyReviewTable from "../../Components/MyReviewTable/MyReviewTable.jsx"
 import useAuth from "../../Hooks/useAuth.jsx"
 import dynamicTitle from "../../Utilities/dynamicTitle.js"
 import axios from "axios"
+import toastAlert from "../../Utilities/toastAlert.js"
 
 
 function MyReviews(){
@@ -14,19 +14,17 @@ function MyReviews(){
   const email = userData?.email;
   const {data, isError, error, isFetching, isLoading} = useQuery({
     queryKey:["MyReviews", email],
-    queryFn:()=>axios.get(`/myReviews?email=${email}`).then(res=>res?.data?.result),
+    queryFn:()=>axios.get(`/reviews?email=${email}`).then(res=>res?.data?.result),
     enabled:!!email,
     refetchInterval:500,
   })
-
-  console.log(data);
 
 
   if(isLoading){
     return <Loader/>
   }
   if(isError){
-    alertHandler(error.message)
+    toastAlert("error",error.message)
   }
 
   return (

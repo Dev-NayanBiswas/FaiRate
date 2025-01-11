@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useCURD from "../Hooks/useCURD";
 import formateDate from "../Utilities/formateDate";
 import {motion} from "motion/react"
+import useCURD from "../Hooks/useCURD";
 
 
 function UpdateServices({serviceData,onModalClose}){

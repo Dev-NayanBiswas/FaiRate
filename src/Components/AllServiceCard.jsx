@@ -48,7 +48,7 @@ function AllServiceCard({idx, cardData}){
       </div>
       </section>
       <div className="p-6 pt-3 flex-1 flex flex-col items-start justify-end h-80">
-        <Link to="/details" state={cardData} data-ripple-light="true" type="button" className="select-none rounded-lg bg-defaultColor py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+        <Link to="/details" state={_id} data-ripple-light="true" type="button" className="select-none rounded-lg bg-defaultColor py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
           Read More
         </Link>
       </div>

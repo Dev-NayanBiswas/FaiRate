@@ -13,8 +13,7 @@ function SwitchTheme() {
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
-
-        // document.querySelector(".navContainer").style.background = `${theme === "coffee" ? "#1d232a" : "#f8fdef"}` 
+        document.querySelector(".navContainer").style.background = theme === "fantasy" ? "#ffff" : "#20161f"
         
     }, [theme]);
 

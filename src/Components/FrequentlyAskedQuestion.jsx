@@ -1,5 +1,7 @@
 
 import {motion} from "motion/react";
+import myFaq from "../assets/freq.svg"
+
 
 
 function FrequentlyAskedQuestions(){
@@ -37,8 +39,9 @@ function FrequentlyAskedQuestions(){
       
       
   return (
-    <section className="flex flex-col justify-center h-full my-10">
-        <article
+    <section className="">
+      <article
+        className="md:mb-6 mb-20"
         initial={{
           opacity:0,
           x:'-100vw'
@@ -53,23 +56,15 @@ function FrequentlyAskedQuestions(){
           }
         }}
         >
-        <section className="flex justify-center items-center mb-5 gap-4 my-10">
-
-
-        <div
-         className="border-b-[1px] border-defaultColor flex-1 w-4/12 origin-right"/>
-        <h1 className="sectionHeading text-center text-defaultColor font-semibold text-4xl font-heading">People Often Asked</h1>
-        <div className="border-b-[1px] border-defaultColor flex-1 w-4/12"/>
-        </section>
-        <p className="text-sm text-center lg:w-5/12 w-full mx-auto my-4 font-ubuntu">People always asked about their queries, You might have something common in them or for better consultancy talk to our expert one</p>
+        {/* <section className="flex justify-center items-center mb-5 gap-4 my-10 text-left"> */}
+        <h1 className="sectionHeading text-left text-defaultColor font-semibold md:text-5xl text-3xl font-heading">People Often Asked . . .</h1>
+        {/* </section> */}
+        <p className="text-sm text-left w-full mx-auto my-4 font-ubuntu">People always asked about their queries, You might have something common in them or for better consultancy talk to our expert one</p>
+        <div className="border-b-defaultColor border-b-[1px]"/>
       </article>
-      <motion.section
+      <section
       
        className="flex lg:flex-row flex-col justify-center gap-4">
-       
-
-
-
       <motion.section
       initial={{
         opacity:0,
@@ -88,7 +83,7 @@ function FrequentlyAskedQuestions(){
         {
             faq.map(({question, answer}, index)=>
                 <section
-                 key={index} className='collapse collapse-plus shadow-lg w-full'>
+                 key={index} className='collapse collapse-plus shadow-lg'>
           <input type='radio' name='my-accordion-3' defaultChecked />
 
           <motion.section
@@ -106,17 +101,18 @@ function FrequentlyAskedQuestions(){
               ease:"easeInOut"
             }
           }}
-           className='collapse-title md:text-2xl font-heading text-lg font-semibold text-defaultColor italic'>
+           className='collapse-title h-fit md:text-xl font-heading text-lg font-semibold text-defaultColor italic'>
             {question}
           </motion.section>
-          <section className='collapse-content'>
-            <p>{answer}</p>
+          <section
+           className='collapse-content'>
+            <p className="first-letter:text-4xl first-letter:font-para first-letter:italic first-letter:text-defaultColor first-letter:font-bold">{answer}</p>
           </section>
         </section>
             )
         }
       </motion.section>
-      </motion.section>
+      </section>
 
 
     </section>

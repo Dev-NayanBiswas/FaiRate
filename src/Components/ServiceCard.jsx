@@ -12,7 +12,7 @@ import Button from "./Loader/Button";
 function ServiceCard({idx,cardData}){
   const {_id,website,serviceTitle,serviceImage,price,description,companyName,category,name,userPhoto,publishedOn} = cardData || {}
     return (
-      <motion.Card
+      <motion.section
       initial={{
         y:'100px',
         opacity:0,
@@ -28,8 +28,11 @@ function ServiceCard({idx,cardData}){
           duration:0.5
         }
       }}
+      viewport={{ once: true, amount: 0.5 }}
+      >
+        <Card
         shadow={false}
-        className="relative w-full overflow-hidden flex flex-col items-end rounded-xl"
+        className="relative w-full h-full overflow-hidden flex flex-col justify-between items-end rounded-xl"
       >
         <CardHeader
         style={{
@@ -45,11 +48,11 @@ function ServiceCard({idx,cardData}){
         >
           <div className="to-bg-black-100 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/900 to-black/45" />
         </CardHeader>
-        <CardBody className="relative py-14 px-6 md:px-12 flex-1 flex flex-col">
+        <CardBody className="relative lg:py-14 py-10 px-6 lg:px-12 flex-1 flex flex-col">
           <Typography
             variant="h2"
             color="white"
-            className="mb-6 font-heading leading-[1.5] text-gray-200"
+            className="mb-6 font-heading leading-[1.5] text-gray-200 whitespace-nowrap"
           >
             {serviceTitle}
           </Typography>
@@ -76,11 +79,12 @@ function ServiceCard({idx,cardData}){
           </section>
           </section>
           <section className="flex justify-end items-center mt-6">
-            <Button state={cardData} to={"/details"} />
+            <Button state={_id} to={"/details"} />
           </section>
           </section>
         </CardBody>
-      </motion.Card>
+      </Card>
+      </motion.section>
     );
   }
 

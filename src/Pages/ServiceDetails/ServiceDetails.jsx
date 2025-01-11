@@ -1,12 +1,31 @@
 import { Navigate, useLocation } from "react-router-dom";
 import ReviewContainer from "../../Components/Review/ReviewContainer";
 import {motion} from 'motion/react';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import Loader from "../../Components/Loader/Loader";
+import { Helmet } from "react-helmet-async";
 
 function ServiceDetails() {
   const location = useLocation();
   if (!location.state) {
     return <Navigate to='/' />;
   }
+  const id = location.state;
+
+  const {data, isLoading, isError, error} = useQuery({
+    queryKey:["services", id],
+    queryFn:()=>axios.get(`/services/${id}`).then(res=>res.data)
+  })
+
+  if(isLoading ){
+    return <Loader/>
+  }
+
+  if(isError){
+    return <p className="text-4xl h-screen w-full flex justify-center items-center font-semibold font-heading text-red-500">{error.message}</p>
+  }
+
   const {
     _id,
     name,
@@ -21,18 +40,23 @@ function ServiceDetails() {
     companyName,
     category,
     reviewCount
-  } = location.state;
+  } = data || {};
 
   return (
-    <section>
-      <section className=''>
+    <section className="mt-10">
+
+      <Helmet>
+      <title>{serviceTitle}</title>
+      </Helmet>
+      <h1 className="text-left md:text-5xl text-3xl text-defaultColor font-semibold font-heading mb-20">Service Details . . .</h1>
+      <section className="">
       <section 
       style={{
         background:`url(${serviceImage})`, 
         backgroundRepeat:'no-repeat',
         backgroundSize:'cover',
         backgroundPosition:'center',
-        }} className='group flex flex-col justify-start items-start gap-2 md:w-11/12 w-full h-[50vh] duration-500 relative rounded-lg p-4 bg-defaultColor/15 hover:-translate-y-2 hover:shadow-xl shadow-gray-800'>
+        }} className='group flex flex-col justify-start items-start gap-2 md:w-11/12 w-full h-[50vh] duration-500 relative rounded-lg p-4 bg-defaultColor/15 hover:-translate-y-2 hover:shadow-xl shadow-gray-800 horizontalWidth'>
         <motion.section
         initial={{
           opacity:0,
@@ -56,8 +80,8 @@ function ServiceDetails() {
             src={serviceImage}
             alt=''
           />
-          <section className='absolute duration-700 group-hover:-translate-y-4 bottom-10 md:left-5 translate-x-1/2'>
-            <span className='my-5 px-5 text-2xl text-red-500 font-semibold font-heading'>{reviewCount} Reviews</span>
+          <section className='absolute rounded-lg group-hover:bg-defaultColor/65 bg-gray-400/80 py-1 px-5 duration-700 group-hover:-translate-y-4 bottom-10 md:left-5 translate-x-1/2 transition-all'>
+            <span className='my-5 px-2 text-2xl  text-defaultColor group-hover:text-white font-semibold font-heading transition-all duration-500'>{reviewCount?reviewCount : 0} Reviews</span>
           </section>
         </motion.section>
 
@@ -84,7 +108,7 @@ function ServiceDetails() {
       </section>
     </section>
     <section>
-    <section className="my-[40vh]">
+    <section className="lg:my-[15vh] md:my-[10vh] my-[5vh]">
           <ReviewContainer id={_id} service={serviceTitle}/>
     </section>
     </section>

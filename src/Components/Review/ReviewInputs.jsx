@@ -3,11 +3,14 @@ import ReactStars from "react-rating-stars-component";
 import formateDate from "../../Utilities/formateDate";
 import useCURD from "../../Hooks/useCURD";
 import useAuth from "../../Hooks/useAuth";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toastAlert from "../../Utilities/toastAlert";
 
 function ReviewInputs({serviceID, prevReview, service}){
     const {addReviewCount,addReviews, updateReview:updateMyReview} = useCURD()
     const {userData} = useAuth();
     const {email,displayName,photoURL} = userData || {}
+    const queryClient = useQueryClient();
     const updateReview = !!prevReview;
     const {register,handleSubmit,watch,setValue, formState:{errors}, clearErrors, setError, reset} = useForm({defaultValues:{
         comment:prevReview?.comment||"",
@@ -21,6 +24,17 @@ function ReviewInputs({serviceID, prevReview, service}){
         image:photoURL,
         postedDate:formateDate(),
     }
+
+    const serviceDetailsMutation = useMutation({
+      mutationKey:["services"],
+      mutationFn:(finalReview)=>addReviews(finalReview),
+      onSuccess:()=>{
+        queryClient.invalidateQueries(["services",'serviceReviews']);
+      },
+      onError:(error)=>{
+        toastAlert("error",error.message);
+      }
+    })
 
     function formHandler(data){
         if (!data?.rating || data?.rating === 0){
@@ -38,8 +52,8 @@ function ReviewInputs({serviceID, prevReview, service}){
             }
 
             if(serviceID){
-                addReviewCount(serviceID)
-                addReviews(finalReview);
+                addReviewCount(serviceID,1)
+                serviceDetailsMutation.mutate(finalReview);
                 
             }else{
                 updateMyReview(data,prevReview._id)
@@ -52,8 +66,8 @@ function ReviewInputs({serviceID, prevReview, service}){
     }
   return (
     <>
-      <section className='flex justify-center items-center mb-8 bg-transparent'>
-        <form onSubmit={handleSubmit(formHandler)} className='h-80 px-7 w-[700px] rounded-[12px] p-4'>
+      <section className='flex justify-center items-center mb-8 bg-transparent h-fit'>
+        <form onSubmit={handleSubmit(formHandler)} className='px-7 w-[700px] rounded-[12px] p-4'>
           <p className='font-semibold cursor-pointer transition-all text-defaultColor font-heading text-4xl'>
             {updateReview? prevReview.serviceTitle : 'What you Think !'}
           </p>

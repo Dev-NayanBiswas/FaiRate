@@ -58,18 +58,18 @@ function Services(){
         <section>
         <section className="flex md:flex-row flex-col-reverse justify-between items-center my-10">
         <section className="flex flex-col py-4">
-        <p className="text-lg font-semibold font-heading">Filter By Price</p>
+        <p className="text-lg font-semibold font-heading text-defaultColor">Filter By Price</p>
       <select
         value={selectedValue}
         onChange={handleChange}
-        className="block w-56 px-4 py-2 bg-transparent text-inherit border-b-[2px] border-defaultColor shadow-sm focus:outline-none"
+        className="block w-56 px-4 py-2 bg-transparent text-inherit border-b-[2px] border-defaultColor shadow-sm focus:outline-none text-gray-700/45 font-semibold"
       >
         <option className="bg-defaultColor/45 font-semibold py-3" value="lowToHigh">Low to High</option>
         <option className="bg-defaultColor/45 font-semibold py-3" value="highToLow">High to Low</option>
       </select>
         </section>
         <section>
-        <section className="p-5 overflow-hidden w-[50px] h-[48px] hover:w-[270px] bg-[#1b272c] shadow-[2px_2px_20px_rgba(0,0,0,0.08)] rounded-full flex group items-center hover:duration-300 duration-300">
+        <section className="p-5 overflow-hidden w-[50px] h-[48px] hover:w-[270px] bg-defaultColor shadow-[2px_2px_20px_rgba(0,0,0,0.08)] rounded-full flex group items-center hover:duration-300 duration-300">
       <div className="flex items-center justify-center fill-white animate-pulse">
         <svg xmlns="http://www.w3.org/2000/svg" id="Isolation_Mode" data-name="Isolation Mode" viewBox="0 0 24 24" width={17} height={17}>
           <path d="M18.9,16.776A10.539,10.539,0,1,0,16.776,18.9l5.1,5.1L24,21.88ZM10.5,18A7.5,7.5,0,1,1,18,10.5,7.507,7.507,0,0,1,10.5,18Z" />
@@ -86,9 +86,9 @@ function Services(){
               }
         </section>
         <section className="flex justify-center items-center my-10">
-          {cardCount > 8 ? <button onClick={()=>setCardCount(pre=>pre-4)} className="text-lg px-8 py-2 rounded-s-full bg-defaultColor text-inherit font-heading font-semibold tracking-wide">Prev</button>:""}
+          {cardCount > 8 ? <button onClick={()=>setCardCount(pre=>pre-4)} className="text-lg px-8 py-2 rounded-s-full bg-defaultColor text-gray-200 font-heading font-semibold tracking-wide">Prev</button>:""}
           <div className="flex-1"/>
-          {cardCount <data?.length ? <button onClick={()=>setCardCount(pre=>pre + 4)} className="text-lg px-8 py-2 rounded-e-full bg-defaultColor text-inherit font-heading font-semibold tracking-wide">Next</button>:""}
+          {cardCount <data?.length ? <button onClick={()=>setCardCount(pre=>pre + 4)} className="text-lg px-8 py-2 rounded-e-full bg-defaultColor text-gray-200 font-heading font-semibold tracking-wide">Next</button>:""}
         </section>
       </section>
   )

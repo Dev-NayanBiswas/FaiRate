@@ -7,9 +7,9 @@ import Swal from "sweetalert2";
 import {motion} from "motion/react";
 
 function MyReviewTable({ idx, cardData }){
-    const {deleteReview} = useCURD()
+    const {deleteReview,addReviewCount} = useCURD()
     const [isOpen, setIsOpen] = useState(false)
-    const {serviceTitle,_id,rating,comment,postedDate}=cardData||{}
+    const {serviceTitle,_id,rating,comment,postedDate,serviceID}=cardData||{}
 
     function handleDelete(id){
       Swal.fire({
@@ -22,7 +22,8 @@ function MyReviewTable({ idx, cardData }){
                   confirmButtonText: "Confirm"
                 }).then((result) => {
                   if (result.isConfirmed) {
-                    deleteReview(id)
+                    deleteReview(id);
+                    addReviewCount(serviceID,0)
                     Swal.fire({
                       title: "Deleted!",
                       text: "Deleted Successfully",
@@ -52,7 +53,7 @@ function MyReviewTable({ idx, cardData }){
           duration:0.5
         }
       }}
-       className="flex flex-col md:flex-row w-full justify-between md:items-center gap-5 border-defaultColor/35 p-2 border-[1px] rounded-lg px-4">
+       className="flex flex-col md:flex-row w-full justify-between md:items-center gap-5 border-defaultColor/35 p-2 border-[1px] rounded-lg px-4 mb-10">
         <section className="md:w-3/12">
           <div className='flex-col flex'>
             <h1 className='text-lg font-medium font-default whitespace-nowrap'>
@@ -63,8 +64,8 @@ function MyReviewTable({ idx, cardData }){
             </p>
           </div>
         </section>
-        <section className="my-4 md:w-6/12">
-          <span className="text-sm">{comment}</span>
+        <section className="my-4 md:w-4/12">
+          <span className="text-sm line-clamp-2">{comment}</span>
           <span>{<Rating rating={rating}/>}</span>
         </section>
         <section className="self-end flex justify-end items-center md:w-3/12">
