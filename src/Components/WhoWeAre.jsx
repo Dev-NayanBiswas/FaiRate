@@ -26,7 +26,7 @@ function WhoWeAre() {
       <p className="mb-5 text-right">
       Our users are at the heart of everything we do. We strive to provide a platform that empowers you to achieve your goals, whether you're offering your skills or seeking services. With intuitive tools, secure transactions, and a thriving community, FaiRate ensures your journey is smooth and rewarding. Your feedback and contributions help us continually evolve, making FaiRate not just a platform, but a space where your ideas, expertise, and aspirations come to life. Together, we build a community where every connection creates value and opportunity.
       </p>
-      <Link to="/login" className="px-8 py-4 bg-defaultColor/45 text-xl font-heading rounded-xl">Lets Join Us</Link>
+      <Link to="/addServices" className="px-8 py-4 bg-defaultColor/45 text-xl font-heading rounded-xl">Share with Us</Link>
     </div>
   </div>
 </div>

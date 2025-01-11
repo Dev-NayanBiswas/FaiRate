@@ -74,7 +74,37 @@ function ServiceDetails() {
           }
         }}
           alt='image here'
-          className='absolute duration-700 shadow-md md:group-hover:-translate-y-4 md:group-hover:-translate-x-4 md:-bottom-10 -bottom-10 md:-right-10 translate-x-4 translate-y-14 md:w-1/2 w-10/12 h-3/5 rounded-lg bg-defaultColor/15 p-2'>
+
+
+          className='absolute 
+          duration-700 
+          shadow-md 
+          md:group-hover:-translate-y-4 
+          md:group-hover:-translate-x-4 
+
+          translate-x-1/2 
+          translate-y-14
+
+
+          lg:top-[150px] 
+          lg:left-[800px] 
+
+          md:top-[208px] 
+          md:left-[360px] 
+
+          top-[260px] 
+          left-[28px]
+          
+
+          md:w-1/2 
+          w-10/12
+          lg:h-full 
+
+          rounded-lg 
+          bg-defaultColor/15 
+          p-2 '>
+          
+          
           <img
             className='object-cover w-full h-full rounded-lg bg-defaultColor'
             src={serviceImage}
@@ -85,11 +115,11 @@ function ServiceDetails() {
           </section>
         </motion.section>
 
-        <section className='p-4 bg-[#20161f]/75 w-full h-full rounded-lg text-white'>
+        <section className='p-4 bg-[#20161f]/75 w-full h-full flex flex-col lg:justify-evenly justify-start rounded-lg text-white'>
           <h2 className='md:text-4xl text-2xl font-bold mb-2 text-gray-200 font-heading'>
             {serviceTitle}
           </h2>
-          <p className='text-gray-200 line-clamp-3'>{description}</p>
+          <p className='text-gray-200 lg:w-5/12 w-full lg:line-clamp-5 line-clamp-3 md:flex-1'>{description}</p>
           <section className="mb-5 mt-3 text-gray-200">
           <p><span className="text-yellow-300 tracking-wide font-semibold ">Company :</span>  {companyName}</p>
           <p><span className="text-yellow-300 tracking-wide font-semibold ">Website :</span>  {website}</p>
@@ -97,14 +127,14 @@ function ServiceDetails() {
           <p><span className="text-yellow-300 tracking-wide font-semibold ">Starts From :</span>  $ {price} / month</p>
           </section>
           <section className="md:block hidden">
-            <Avatar data={location?.state}/>
+            <Avatar data={data}/>
           </section>
         </section>
       </section>
 
 
-      <section className="md:hidden block">
-      <Avatar data={location?.state}/>
+      <section className="md:hidden block mt-[25vh]">
+      <Avatar data={data}/>
       </section>
     </section>
     <section>
@@ -123,7 +153,7 @@ function Avatar ({data}){
   const {name,userPhoto,updatedOn,publishedOn} = data || {}
 
 
-    return <div className="flex md:justify-start gap-4 items-center md:my-5 my-28 bg-transparent">
+    return <div className="flex md:justify-start gap-4 items-center md:my-5 my-30 bg-transparent">
     <div className='avatar'>
       <div className='w-16 rounded-full ring-4
        ring-offset-4 ring-defaultColor'>
@@ -132,7 +162,7 @@ function Avatar ({data}){
         }
       </div>
     </div>
-    <article className="text-inherit">
+    <article className="!font-light text-sm text-inherit">
       {
         name?<h1>Author : {name}</h1>:""
       }
