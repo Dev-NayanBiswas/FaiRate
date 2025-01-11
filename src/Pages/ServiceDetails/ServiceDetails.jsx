@@ -56,7 +56,7 @@ function ServiceDetails() {
         backgroundRepeat:'no-repeat',
         backgroundSize:'cover',
         backgroundPosition:'center',
-        }} className='group flex flex-col justify-start items-start gap-2 md:w-11/12 w-full h-[50vh] duration-500 relative rounded-lg p-4 bg-defaultColor/15 hover:-translate-y-2 hover:shadow-xl shadow-gray-800 horizontalWidth'>
+        }} className='group flex flex-col justify-start items-start gap-2 md:w-11/12 w-full h-[50vh] duration-500 relative rounded-lg lg:p-4 p-2 bg-defaultColor/15 hover:-translate-y-2 hover:shadow-xl shadow-gray-800 horizontalWidth'>
         <motion.section
         initial={{
           opacity:0,
@@ -96,13 +96,17 @@ function ServiceDetails() {
           left-[28px]
           
 
-          md:w-1/2 
-          w-10/12
-          lg:h-full 
+          lg:w-[725px]
+          lg:h-[455px] 
+          md:w-[325px]
+          md:h-[220px] 
+          w-[297px]
+          h-[200px]
+          
 
           rounded-lg 
           bg-defaultColor/15 
-          p-2 '>
+          lg:p-4 p-2 '>
           
           
           <img
@@ -133,7 +137,7 @@ function ServiceDetails() {
       </section>
 
 
-      <section className="md:hidden block mt-[25vh]">
+      <section className="md:hidden block mt-[12vh]">
       <Avatar data={data}/>
       </section>
     </section>
