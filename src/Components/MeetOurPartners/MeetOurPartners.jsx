@@ -25,6 +25,7 @@ export default function MeetOurPartners(){
               bounce:0.5,
             }
           }}
+          viewport={{ once: true, amount: 0.5 }}
            className="group relative overflow-hidden rounded-xl">
             <img
               className="h-full max-w-full rounded-lg object-cover object-center"
