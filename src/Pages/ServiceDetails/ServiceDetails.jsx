@@ -6,6 +6,8 @@ import axios from "axios";
 import Loader from "../../Components/Loader/Loader";
 import { Helmet } from "react-helmet-async";
 
+
+
 function ServiceDetails() {
   const location = useLocation();
   if (!location.state) {
@@ -155,27 +157,21 @@ export default ServiceDetails;
 
 function Avatar ({data}){
   const {name,userPhoto,updatedOn,publishedOn} = data || {}
-
+  const adminImage = 'https://i.ibb.co.com/Df6bxww/images-q-tbn-ANd9-Gc-R13t-Rckwq-S44od-By9-EJfu-DJ7a8-I9-Hv-NGFNvg-s.jpg'
 
     return <div className="flex md:justify-start gap-4 items-center md:my-5 my-30 bg-transparent">
     <div className='avatar'>
       <div className='w-16 rounded-full ring-4
        ring-offset-4 ring-defaultColor'>
-        {
-          userPhoto?<img src={userPhoto} />:""
-        }
+    
+          <img src={userPhoto ? userPhoto : adminImage} />
+  
       </div>
     </div>
     <article className="!font-light text-sm text-inherit">
-      {
-        name?<h1>Author : {name}</h1>:""
-      }
-      {
-        publishedOn ? <p>Posted On : {publishedOn}</p> : ""
-      }
-      {
-        updatedOn ? <p>Updated On : {updatedOn}</p> : ""
-      }
+     <h1>Author : {name ? name : "Admin"}</h1>
+    <p>Posted On : {publishedOn? publishedOn : "22th March 2023"}</p>
+    <p>Updated On : {updatedOn ? updatedOn : "22th March 2023"}</p>
     </article>
     </div>
 }
