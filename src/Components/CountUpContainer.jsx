@@ -46,6 +46,7 @@ function CountUpContainer(){
             duration:3,
             type:"spring"
           }}}
+          viewport={{ once: true, amount: 0.5 }}
          className="flex justify-center flex-col items-center">
             <section
             
