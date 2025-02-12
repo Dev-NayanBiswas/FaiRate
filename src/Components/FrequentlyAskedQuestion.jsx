@@ -105,6 +105,7 @@ function FrequentlyAskedQuestions(){
               ease:"easeInOut"
             }
           }}
+          viewport={{ once: true}}
            className='collapse-title h-fit md:text-xl font-heading text-[16px] font-semibold text-defaultColor italic'>
             {question}
           </motion.section>
