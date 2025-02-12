@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import formateDate from "../Utilities/formateDate";
 import {motion} from "motion/react"
@@ -21,7 +21,7 @@ function UpdateServices({serviceData,onModalClose}){
     }
   })
 
-    // serviceImage, serviceTitle,companyName,website,description,category,price
+
       
   function handleUpsertService(data){
     const newData = {...data,updatedOn:formateDate()}
