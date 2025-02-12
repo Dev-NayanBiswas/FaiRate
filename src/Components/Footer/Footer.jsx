@@ -27,6 +27,7 @@ function Footer(){
                 duration:0.5
             }
         }}
+          viewport={{ once: true, amount: 0.5 }}
          className="bg-defaultColor/45 dark:bg-gray-900 text-inherit">
     <section className="container px-6 py-8 mx-auto">
         <section className="flex flex-col items-center text-center">

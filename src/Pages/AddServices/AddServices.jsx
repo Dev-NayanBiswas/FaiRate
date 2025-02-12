@@ -13,7 +13,7 @@ function AddServices() {
   const {addService} = useCURD();
   const {handleSubmit, register, formState:{errors}, reset} = useForm()
 
-    // serviceImage, serviceTitle,companyName,website,description,category,price
+
     const extraData={
       name:userData?.displayName,
       email:userData?.email,
