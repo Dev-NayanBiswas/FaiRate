@@ -8,6 +8,8 @@ import {
   import {motion} from "motion/react"
 
 import Button from "./Loader/Button";
+
+const adminImage = 'https://i.ibb.co.com/Df6bxww/images-q-tbn-ANd9-Gc-R13t-Rckwq-S44od-By9-EJfu-DJ7a8-I9-Hv-NGFNvg-s.jpg'
    
 function ServiceCard({idx,cardData}){
   const {_id,website,serviceTitle,serviceImage,price,description,companyName,category,name,userPhoto,publishedOn} = cardData || {}
@@ -71,11 +73,11 @@ function ServiceCard({idx,cardData}){
             variant="circular"
             alt="User"
             className="border-2 object-cover border-defaultColor"
-            src={userPhoto}
+            src={userPhoto ? userPhoto : adminImage}
           />
           <section className="text-gray-300 flex-1">
-            <Typography variant="paragraph">By : {name}</Typography>
-            <Typography variant="paragraph">Posted On : {publishedOn}</Typography>
+            <Typography variant="paragraph">By : {name ? name : "Admin"}</Typography>
+            <Typography variant="paragraph">Posted On : {publishedOn? publishedOn : "11th February"}</Typography>
           </section>
           </section>
           <section className="flex justify-end items-center mt-6">
