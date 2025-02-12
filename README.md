@@ -24,7 +24,7 @@
 - *Google sign in and email sign is so simple no need to verify email or password **(Note:password should be 6characters long and must have a special character, one uppercase and lowercase letters)***
 - *only Signed up user can post, edit, delete reviews*
 - *On detail page user will see the review cunt of that specific service and can add their own reviews there*
-- *Only Signed in user can add services, and can update or delete his post*
+- *Only Signed in user can add services, and can update or delete his post regardlessly*
 
 
 
@@ -36,7 +36,7 @@
   - Gestures.
   - WhileInView
   
-- ***React with Vite***
+- ***React***
     - useState 
     - useEffect,
     - Context API..
